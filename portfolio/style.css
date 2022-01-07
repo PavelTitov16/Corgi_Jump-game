@@ -49,15 +49,21 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 body {
     width: 1440px;
     margin: 0 auto;
+    background-color: black;
 }
+
 .header-container {
-    background: url(./assets/img/bg.jpg);
-    height: 910px;
+    background-image: url(./assets/img/bg.jpg);
     display: flex;
-    flex-direction: column;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center 0;
+}
+.topside {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    height: 90px;
 }
 .nav-item {
     font-style: normal;
@@ -68,26 +74,23 @@ body {
 }
 .nav-list {
     display: flex;
-    gap: 30px;
+    gap: 31px;
     justify-content: flex-end;
     padding-left: 30px;
-    padding-right: 31px;
+    padding-right: 30px;
 }
 .nav-link {
     color: white;
 }
-
 .logo {
     background: url(./assets/svg/logo.svg);
     height: 50px;
     width: 50px;
     margin-right: 780px;
+    transition: 0.3s;
 }
-.header__topside {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-    height: 90px;
+.logo:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 .lang {
     height: 50px;
@@ -100,7 +103,23 @@ body {
     text-align: center;
     color: white;
     display: flex;
-    gap: 9px;
+    gap: 10px;
+}
+.en {
+    color: #BDAE82;
+}
+
+.hero-container {
+    background-image: url(./assets/img/bg.jpg);
+    background-position: center -90px;
+    background-repeat: no-repeat;
+    height: 820px;
+}
+.bottomside {
+    height: 330px;
+    width: 470px;
+    margin: 0 850px 338px 80px;
+    padding-top: 160px;
 }
 .photo-name {
     font-family: 'Merriweather', serif;
@@ -117,7 +136,7 @@ body {
     font-size: 20px;
     line-height: 40px;
     color: white;
-    margin: 18px 0 17px 30px;
+    margin: 10px 0 25px 0;
 }
 .hire {
     background: #BDAE82;
@@ -135,12 +154,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-right: 280px;
+    cursor: pointer;
+    border: 0;
 }
-.header__bottomside {
-    height: 330px;
-    width: 500px;
-    margin: 152px 850px 338px 90px;
-}
-.en {
-    color: #BDAE82;
-}
+
