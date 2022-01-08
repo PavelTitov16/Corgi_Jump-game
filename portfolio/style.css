@@ -183,12 +183,12 @@ body {
     text-align: center;
     margin: 0 auto;
     padding-top: 100px;
-    width:25%;
+    width: 152px;
     letter-spacing: 0em;
 }
 .line {
     background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
-    width: 50%;
+    width: 700px;
     margin: 0 auto;
 }
 .skills-items {
@@ -275,6 +275,10 @@ h3 {
 .button_2:hover {
     color: #FFFFFF;
 }
+
+#portfoto {
+    width: 220px;
+}
 .portfolio-items {
     display: flex;
     flex-wrap: wrap;
@@ -287,6 +291,9 @@ h3 {
 }
 #video_id {
     margin-bottom: 60px;
+}
+#vid-title {
+    width: 154px;
 }
 .video {
     background-image: url("./assets/img/video-player.jpg");
@@ -319,6 +326,9 @@ h3 {
 .section-price {
     padding-bottom: 100px;
     background: black;
+}
+#price_id {
+    width: 142px;
 }
 .text_block {
     display: block;
@@ -369,7 +379,13 @@ h3 {
     color: #BDAE82;
     margin: 0;
 }
-#order-button {
+#order1 {
+    margin-top: 20px;
+}
+#order2 {
+    margin-top: 20px;
+}
+#order3 {
     margin-top: 20px;
 }
 
