@@ -30,7 +30,7 @@
                 <div class="bottomside">
                     <h1 class="photo-name">Alexa Rise</h1>
                     <div class="description">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</div>
-                    <div class="hire">Hire me</div>
+                    <button class="hire">Hire me</button>
                 </div>
             </section>
             <section class="skill-container" id="skills">
@@ -38,21 +38,25 @@
                     <h2 class="section-title">Skills</h2>
                 </div>
                 <div class="skills-items">
-                <div class="skill-item">
-                    <h3>Digital photography</h3>
-                        <p>High-quality photos in the studio and on the nature</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Video shooting</h3>
-                        <p>Capture your moments so that they always stay with you</p>
+                    <div class="skill-item">
+                        <img src="./assets/svg/camera.svg" alt="camera" width="62" height="50">
+                        <h3>Digital photography</h3>
+                            <p class="skill_p">High-quality photos in the studio and on the nature</p>
                     </div>
                     <div class="skill-item">
+                        <img src="./assets/svg/video.svg" alt="video" width="62" height="50">
+                        <h3>Video shooting</h3>
+                            <p class="skill_p">Capture your moments so that they always stay with you</p>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./assets/svg/image.svg" alt="image" width="66" height="50">
                         <h3>Retouch</h3>
-                            <p>I strive to make photography surpass reality</p>
+                            <p class="skill_p">I strive to make photography surpass reality</p>
                     </div>
                     <div class="skill-item">
+                        <img src="./assets/svg/mic.svg" alt="microphone" width="32" height="50">
                         <h3>Audio</h3>
-                        <p class="skill">Professional sounds recording for video, advertising, portfolio</p>
+                        <p class="skill_p">Professional sounds recording for video, advertising, portfolio</p>
                     </div>
                 </div>
                 </div>
@@ -62,10 +66,10 @@
                     <h2 class="section-title">Portfolio</h2>
                 </div>
                 <div class="season-buttons">
-                    <div class="button_2">Winter</div>
-                    <div class="button_2">Spring</div>
-                    <div class="button_2">Summer</div>
-                    <div class="button_1">Autumn</div>
+                    <button class="button_2">Winter</button>
+                    <button class="button_2">Spring</button>
+                    <button class="button_2">Summer</button>
+                    <button class="button_1">Autumn</button>
                 </div>   
                 <div class="portfolio-items">
                     <div class="image"><img src="./assets/img/autumn/1.jpg" alt="sweet autumn couple"></div>
@@ -81,9 +85,9 @@
                     <h2 class="section-title">Video</h2>
                 </div>
                 <div class="video">
-                    <div class="button_3">
-                        <img src="./assets/svg/play-btn.svg" alt="video play button">
-                    </div>
+                    <button class="button_3">
+                        <img class="player" src="./assets/svg/play-btn.svg" alt="video play button">
+                    </button>
                 </div>
             </section>
             <section class="section-price" id="price">
@@ -94,40 +98,51 @@
                     <div class="price-item">
                         <h3 class="rate">Standart</h3>
                         <h3 class="money">500 $</h3>
-                        <span class="text_block">One location</span>
-                        <span class="text_block">120 photos in color</span>
-                        <span class="text_block">12 photos in retouch</span>
-                        <span class="text_block">Readiness 2-3 weeks</span>
-                        <span class="text_block">Make up, visage</span>
-                        <div class="button_1">Order shooting</div>
+                        <div class="price-description">
+                            <span class="text_block">One location</span>
+                            <span class="text_block">120 photos in color</span>
+                            <span class="text_block">12 photos in retouch</span>
+                            <span class="text_block">Readiness 2-3 weeks</span>
+                            <span class="text_block">Make up, visage</span>
+                        </div>
+                        <button class="button_1" id="order-button">Order shooting</button>
                     </div>
                     <div class="price-item">
                         <h3 class="rate">Premium</h3>
                         <h3 class="money">700 $</h3>
-                        <span class="text_block">One or two locations</span>
-                        <span class="text_block">200 photos in color</span>
-                        <span class="text_block">20 photos in retouch</span>
-                        <span class="text_block">Readiness 1-2 weeks</span>
-                        <span class="text_block">Make up, visage</span>
-                        <div class="button_1">Order shooting</div>
+                        <div class="price-description">
+                            <span class="text_block">One or two locations</span>
+                            <span class="text_block">200 photos in color</span>
+                            <span class="text_block">20 photos in retouch</span>
+                            <span class="text_block">Readiness 1-2 weeks</span>
+                            <span class="text_block">Make up, visage</span>
+                        </div>
+                        <button class="button_1" id="order-button">Order shooting</button>
                     </div>
                     <div class="price-item">
                         <h3 class="rate">Gold</h3>
                         <h3 class="money">1000 $</h3>
-                        <span class="text_block">Three locations or more</span>
-                        <span class="text_block">300 photos in color</span>
-                        <span class="text_block">50 photos in retouch</span>
-                        <span class="text_block">Readiness 1 week</span>
-                        <span class="text_block">Make up, visage, hairstyle</span>
-                        <div class="button_1">Order shooting</div>
+                        <div class="price-description">
+                            <span class="text_block">Three locations or more</span>
+                            <span class="text_block">300 photos in color</span>
+                            <span class="text_block">50 photos in retouch</span>
+                            <span class="text_block">Readiness 1 week</span>
+                            <span class="text_block">Make up, visage, hairstyle</span>
+                        </div>
+                        <button class="button_1" id="order-button">Order shooting</button>
                     </div>
                 </div>  
             </section>
             <section class="contact-container" id="contacts">
-                    <h2 class="contact-title">Contact me</h2>
-                
+                    <div class="feedback">
+                        <h2 class="contact-title">Contact me</h2>
+                          <form action="contact-information">
+                                <input type="email" class="email" placeholder="E-mail">
+                                <input type="tel" class="tel" placeholder="Phone">
+                                <input type="textarea" class="textarea" placeholder="Message">
+                                <button class="button_1">Send message</button>
+                          </form>
+                    </div>
     </main>
-        
-    
 </body>
 </html>
