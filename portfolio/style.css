@@ -53,7 +53,7 @@ html {
 body {
     width: 1440px;
     margin: 0 auto;
-    background-color: white;
+    background-color: black;
 }
 .section {
     background-color: black;
@@ -445,12 +445,13 @@ form {
     color: #bdae82;
     font-size: 20px;
 } 
-.textarea {
+textarea {
     background: transparent;
     border: 2px solid #BDAE82;
     border-radius: 0px;
     background: rgba(0, 0, 0, 0.5);
     height: 100px;
+    width: 450px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -458,14 +459,14 @@ form {
     line-height: 40px;
     cursor: pointer;
     transition: 0.5s;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
  }
- .textarea::placeholder {
+::placeholder {
     padding-left: 18px;
-    font-family: inherit;
+    font-family: 'Inter', sans-serif;
     color: #bdae82;
     font-size: 20px;
-    transform: translateY(-26px);
+    padding-top: 3px;
 } 
 
 .footer-container {
@@ -504,6 +505,7 @@ form {
 .social-icon:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
     transition: 0.5s;
+    cursor: pointer;
 }
 .link {
     color: #FFFFFF;
