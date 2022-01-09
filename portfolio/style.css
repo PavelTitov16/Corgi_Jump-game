@@ -406,7 +406,6 @@ h3 {
     color: #BDAE82;
     text-align: start;
 }
-
 .feedback {
     margin-top: 81px;
     margin-right: 20px;
@@ -432,16 +431,22 @@ form {
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
-    cursor: pointer;
     transition: 0.5s;
 }
-.email::placeholder {
+input.email {
+    color: #BDAE82;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
     padding-left: 18px;
+}
+.email::placeholder {
     font-family: inherit;
     color: #bdae82;
     font-size: 20px;
   }
- .tel {
+.tel {
     background: transparent;
     border: 2px solid #BDAE82;
     border-radius: 0px;
@@ -452,16 +457,23 @@ form {
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
-    cursor: pointer;
     transition: 0.5s;
  }
- .tel::placeholder {
+input.tel {
+    color: #BDAE82;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
     padding-left: 18px;
+ }
+.tel::placeholder {
     font-family: inherit;
     color: #bdae82;
     font-size: 20px;
 } 
 textarea {
+    padding-left: 18px;
     background: transparent;
     border: 2px solid #BDAE82;
     border-radius: 0px;
@@ -473,17 +485,21 @@ textarea {
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
-    cursor: pointer;
     transition: 0.5s;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
+    color: #BDAE82;
+    resize: none
  }
 ::placeholder {
-    padding-left: 18px;
+ 
     font-family: 'Inter', sans-serif;
     color: #bdae82;
     font-size: 20px;
     padding-top: 3px;
 } 
+:focus::placeholder {
+    color: transparent;
+}
 
 .footer-container {
     display: flex;
