@@ -293,7 +293,7 @@ h3 {
     background-image: url("./assets/img/video-player.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-    width: 1400px;
+    max-width: 1400px;
     height: 705px;
     margin: 0 auto;
     display: flex;
@@ -431,6 +431,7 @@ input.email {
     font-weight: normal;
     font-size: 20px;
     padding-left: 18px;
+    width: 450px;
 }
 .email::placeholder {
     font-family: inherit;
@@ -457,6 +458,7 @@ input.tel {
     font-weight: normal;
     font-size: 20px;
     padding-left: 18px;
+    width: 450px;
  }
 .tel::placeholder {
     font-family: inherit;
@@ -542,6 +544,9 @@ textarea {
 }
 
 @media (max-width: 768px) {
+.logo {
+    padding-left: 60px
+}
 .skill-container {
     display: flex;
     flex-direction: column;
@@ -571,5 +576,27 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.price-items {
+    flex-direction: column;
+}
+.contact-container{
+    justify-content: center;
+}
+.footer-container {
+    flex-direction: column;
+    justify-content: center;
+}
+.footer-git {
+    padding: 0;
+}
+.footer-text {
+    padding: 0;
+}
+.social-items {
+    padding: 0;
+}
+form {
+    align-items: center;
 }
 }
