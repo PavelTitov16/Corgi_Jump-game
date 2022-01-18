@@ -51,7 +51,7 @@ html {
 }
 
 body {
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     background-color: black;
 }
@@ -182,8 +182,8 @@ body {
     color: #BDAE82;
     text-align: center;
     margin: 0 auto;
-    padding-top: 100px;
-    width: 152px;
+    padding: 100px 20px 0;
+    width: fit-content;
     letter-spacing: 0em;
 }
 .line {
@@ -276,9 +276,6 @@ h3 {
     color: #FFFFFF;
 }
 
-#portfoto {
-    width: 220px;
-}
 .portfolio-items {
     display: flex;
     flex-wrap: wrap;
@@ -291,9 +288,6 @@ h3 {
 }
 #video_id {
     margin-bottom: 60px;
-}
-#vid-title {
-    width: 154px;
 }
 .video {
     background-image: url("./assets/img/video-player.jpg");
@@ -326,9 +320,6 @@ h3 {
 .section-price {
     padding-bottom: 100px;
     background: black;
-}
-#price_id {
-    width: 142px;
 }
 .text_block {
     display: block;
@@ -548,4 +539,37 @@ textarea {
 }
 #rss {
     padding-left: 27px;
+}
+
+@media (max-width: 768px) {
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.skills-items {
+    display: flex;
+    align-items: center;
+    max-width: 728px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.skill-item {
+    max-width: 300px;
+    flex-basis: auto;
+}
+#portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.line {
+    max-width: 364px;
+}
+.season-buttons {
+    max-width: 445px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 }
