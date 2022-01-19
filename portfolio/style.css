@@ -62,15 +62,22 @@ body {
 .header-container {
     background-image: url(./assets/img/bg.jpg);
     display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 90px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center 0;
 }
-.topside {
+.nav {
+    margin-left: auto;
+}
+.nav-list {
     display: flex;
+    gap: 30px;
     justify-content: flex-end;
-    padding: 20px;
-    height: 90px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .nav-item {
     font-style: normal;
@@ -78,13 +85,6 @@ body {
     font-size: 20px;
     line-height: 50px;
     font-family: 'Inter', sans-serif;
-}
-.nav-list {
-    display: flex;
-    gap: 31px;
-    justify-content: flex-end;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 .nav-link {
     color: white;
@@ -96,7 +96,6 @@ body {
 .logo {
     height: 50px;
     width: 50px;
-    margin-right: 780px;
     transition: 0.3s;
 }
 .logo:hover {
@@ -125,10 +124,10 @@ body {
     background-repeat: no-repeat;
     height: 820px;
 }
-.bottomside {
+.hero-block {
     height: 330px;
-    width: 470px;
-    margin: 0 850px 338px 80px;
+    max-width: 550px;
+    padding-left: 80px;
     padding-top: 160px;
 }
 .photo-name {
