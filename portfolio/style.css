@@ -122,7 +122,7 @@ body {
     background-image: url(./assets/img/bg.jpg);
     background-position: center -90px;
     background-repeat: no-repeat;
-    height: 820px;
+    height: 910px;
 }
 .hero-block {
     height: 330px;
@@ -546,6 +546,37 @@ textarea {
 .logo {
     padding-left: 60px
 }
+.header-container {
+    background-position: -5px -30px;
+    background-size: auto 620px;
+}
+
+.hero-container {
+    height: 500px;
+    background-position: -5px -120px;
+    background-size: auto 620px;
+}
+.hero-block {
+    padding-top: 78px;
+    padding-left: 60px;
+}
+.photo-name {
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 64px;
+}
+.description {
+    max-width: 390px;
+    font-size: 20px;
+    line-height: 24.2px;
+}
+.hire {
+    margin-top: 60px;
+}
+
+.section-title {
+    font-size: 32px;
+}
 .skill-container {
     display: flex;
     flex-direction: column;
@@ -557,11 +588,17 @@ textarea {
     max-width: 728px;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 40px;
 }
 .skill-item {
     max-width: 300px;
     flex-basis: auto;
 }
+.skill_p {
+    width: 280px;
+    line-height: 22px;
+}
+
 #portfolio {
     display: flex;
     flex-direction: column;
@@ -579,23 +616,46 @@ textarea {
 .price-items {
     flex-direction: column;
 }
+
+.contact-container {
+    background-position: -230px 10px;
+    background-size: auto 600px;
+}
+.contact-title {
+    text-align: center;
+    font-size: 32px;
+}
 .contact-container{
     justify-content: center;
-}
-.footer-container {
-    flex-direction: column;
-    justify-content: center;
-}
-.footer-git {
-    padding: 0;
-}
-.footer-text {
-    padding: 0;
-}
-.social-items {
-    padding: 0;
+    max-height: 600px;
 }
 form {
     align-items: center;
 }
+
+.footer-container {
+    flex-direction: column;
+    justify-content: center;
+    height: 190px;
 }
+.footer-git {
+    padding-bottom: 16px;
+    padding-left: 0;
+}
+.footer-text {
+    line-height: 24.2px;
+}
+#rss {
+    padding-left: 0px;
+}
+.social-items {
+    padding-top: 20px;
+    padding-right: 0;
+}
+
+}
+
+
+
+
+
