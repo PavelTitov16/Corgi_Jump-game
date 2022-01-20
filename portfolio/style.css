@@ -649,6 +649,15 @@ h3 {
 
 .price-items {
     flex-direction: column;
+    padding-top: 50px;
+    gap: 50px;
+}
+.price-item {
+    padding-top: 40px;
+    width: 420px;
+}
+.section-price {
+    padding-bottom: 70px;
 }
 
 .contact-container {
