@@ -543,12 +543,18 @@ textarea {
 }
 
 @media (max-width: 768px) {
+.nav {
+    display: none;
+}
 .logo {
-    padding-left: 60px
+    padding-left: 40px
 }
 .header-container {
     background-position: -5px -30px;
     background-size: auto 620px;
+}
+.lang {
+    padding-right: 120px;
 }
 
 .hero-container {
@@ -569,6 +575,7 @@ textarea {
     max-width: 390px;
     font-size: 20px;
     line-height: 24.2px;
+    padding-top: 10px;
 }
 .hire {
     margin-top: 60px;
@@ -576,6 +583,7 @@ textarea {
 
 .section-title {
     font-size: 32px;
+    padding-top: 80px;
 }
 .skill-container {
     display: flex;
@@ -588,17 +596,24 @@ textarea {
     max-width: 728px;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
+    padding-top: 45px;
 }
 .skill-item {
-    max-width: 300px;
+    max-width: 325px;
     flex-basis: auto;
 }
 .skill_p {
     width: 280px;
     line-height: 22px;
 }
+h3 {
+    margin-top: 30px;
+}
 
+#portfoto {
+    padding-top: 104px;
+}
 #portfolio {
     display: flex;
     flex-direction: column;
@@ -612,7 +627,17 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding-top: 50px;
 }
+
+.video {
+    background-image: url(./assets/img/video-adaptive.jpg);
+    height: 418px;
+}
+#video_id {
+    margin-bottom: 50px;
+}
+
 .price-items {
     flex-direction: column;
 }
