@@ -300,6 +300,7 @@ h3 {
     justify-content: center;
 }
 .button_3 {
+    background-image: url("./assets/svg/play-btn.svg");
     display: flex;
     transition: 0.5s;
     width: 150px;
@@ -636,6 +637,14 @@ h3 {
 }
 #video_id {
     margin-bottom: 50px;
+}
+.button_3 {
+    background-image: url("./assets/svg/play-btn_adaptive.svg");
+    display: flex;
+    transition: 0.5s;
+    width: 75px;
+    height: 75px; 
+    margin-left: 0;
 }
 
 .price-items {
