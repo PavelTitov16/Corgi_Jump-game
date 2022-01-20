@@ -663,17 +663,20 @@ h3 {
 .contact-container {
     background-position: -230px 10px;
     background-size: auto 600px;
+    justify-content: center;
+    max-height: 610px;
 }
 .contact-title {
     text-align: center;
     font-size: 32px;
 }
-.contact-container{
-    justify-content: center;
-    max-height: 600px;
+.feedback {
+    margin-right: 0;
+    margin-top: 86px;
 }
 form {
     align-items: center;
+    margin-top: 55px;
 }
 
 .footer-container {
@@ -682,17 +685,21 @@ form {
     height: 190px;
 }
 .footer-git {
-    padding-bottom: 16px;
+    margin-top: 30px;
     padding-left: 0;
+    gap: 24px;
+    
 }
 .footer-text {
     line-height: 24.2px;
+    margin-bottom: 18px;
 }
 #rss {
     padding-left: 0px;
 }
 .social-items {
-    padding-top: 20px;
+    padding-top: 8px;
+    margin-bottom: 40px;
     padding-right: 0;
 }
 
