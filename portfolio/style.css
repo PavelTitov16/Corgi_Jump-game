@@ -374,13 +374,7 @@ h3 {
     color: #BDAE82;
     margin: 0;
 }
-#order1 {
-    margin-top: 20px;
-}
-#order2 {
-    margin-top: 20px;
-}
-#order3 {
+#order {
     margin-top: 20px;
 }
 
@@ -742,9 +736,6 @@ textarea {
 }
 
 @media (max-width: 480px) {
-.hero-container {
-    background-position: -240px -120px;
-}
 
 .season-buttons {
     display: flex;
@@ -768,8 +759,6 @@ textarea {
 }
 }
 
-
-
 @media (max-width: 450px) {
 .line {
     max-width: 250px;
@@ -777,11 +766,9 @@ textarea {
 .lang {
     padding-right: 80px;
 }
+.skill-item {
+    padding: 0;
+    flex-basis: 0;
+}
 }
 
-@media (max-width: 350px) {
-.hero-container {
-    background-position: -240px -120px;
-    overflow: hidden;
-}
-}
