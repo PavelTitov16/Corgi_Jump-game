@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./assets/favicon.ico">
     <title>portfolio</title>
-    <script src="index.js"></script>
 </head>
 <body>
     <header class="header-container">
-        <div class="topside">
             <div class="logo"><img src="./assets/svg/logo.svg" alt="camera logo"></div>
             <nav class="nav">
                 <ul class="nav-list">
@@ -22,12 +20,18 @@
                     <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
                 </ul>
             </nav>
-            <div class="lang"><span class="en">en</span><span>/</span><span class="ru">ru</span></div>
-        </div>
+            <div class="rightside">
+                <div class="lang"><span class="en">en</span><span>/</span><span class="ru">ru</span></div>
+                    <div class="buter_brodskiy">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+            </div>
     </header>
     <main>
             <section class="hero-container" id="hero">
-                <div class="bottomside">
+                <div class="hero-block">
                     <h1 class="photo-name">Alexa Rise</h1>
                     <div class="description">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</div>
                     <button class="hire">Hire me</button>
@@ -71,12 +75,12 @@
                     <button class="button_1">Autumn</button>
                 </div>   
                 <div class="portfolio-items">
-                    <div class="image"><img src="./assets/img/autumn/1.jpg" alt="sweet autumn couple"></div>
-                    <div class="image"><img src="./assets/img/autumn/2.jpg" alt="autumn header__topside"></div>
-                    <div class="image"><img src="./assets/img/autumn/3.jpg" alt="sweet autumn child"></div>
-                    <div class="image"><img src="./assets/img/autumn/4.jpg" alt="autumn trees"></div>
-                    <div class="image"><img src="./assets/img/autumn/5.jpg" alt="sweet autumn couple"></div>
-                    <div class="image"><img src="./assets/img/autumn/6.jpg" alt="autumn flower in Phone"></div>
+                    <img class="image" src="./assets/img/autumn/1.jpg" alt="sweet autumn couple">
+                    <img class="image" src="./assets/img/autumn/2.jpg" alt="autumn header__topside">
+                    <img class="image" src="./assets/img/autumn/3.jpg" alt="sweet autumn child">
+                    <img class="image" src="./assets/img/autumn/4.jpg" alt="autumn trees">
+                    <img class="image" src="./assets/img/autumn/5.jpg" alt="sweet autumn couple">
+                    <img class="image" src="./assets/img/autumn/6.jpg" alt="autumn flower in Phone">
                 </div>         
             </section>
             <section class="section" id="video">
@@ -84,9 +88,7 @@
                     <h2 class="section-title" id="vid-title">Video</h2>
                 </div>
                 <div class="video">
-                    <button class="button_3">
-                        <img class="player" src="./assets/svg/play-btn.svg" alt="video play button">
-                    </button>
+                    <button class="button_3"> </button>
                 </div>
             </section>
             <section class="section-price" id="price">
@@ -104,7 +106,7 @@
                             <span class="text_block">Readiness 2-3 weeks</span>
                             <span class="text_block">Make up, visage</span>
                         </div>
-                        <button class="button_1" id="order1">Order shooting</button>
+                        <button class="button_1" id="order">Order shooting</button>
                     </div>
                     <div class="price-item">
                         <h3 class="rate">Premium</h3>
@@ -116,7 +118,7 @@
                             <span class="text_block">Readiness 1-2 weeks</span>
                             <span class="text_block">Make up, visage</span>
                         </div>
-                        <button class="button_1" id="order2">Order shooting</button>
+                        <button class="button_1" id="order">Order shooting</button>
                     </div>
                     <div class="price-item">
                         <h3 class="rate">Gold</h3>
@@ -128,7 +130,7 @@
                             <span class="text_block">Readiness 1 week</span>
                             <span class="text_block">Make up, visage, hairstyle</span>
                         </div>
-                        <button class="button_1" id="order3">Order shooting</button>
+                        <button class="button_1" id="order">Order shooting</button>
                     </div>
                 </div>  
             </section>
@@ -170,6 +172,7 @@
             </div>
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
 
