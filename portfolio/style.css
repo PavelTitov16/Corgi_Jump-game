@@ -117,6 +117,21 @@ body {
 .en {
     color: #BDAE82;
 }
+.rightside {
+    display: flex;
+}
+.buter_brodskiy {
+    display: none;
+    cursor: pointer;
+}
+.bar {
+    display: block;
+    width: 50px;
+    height: 5px;
+    margin: 5px auto;
+    background: #FFFFFF;
+    transition: all 0.4s;
+}
 
 .hero-container {
     background-image: url(./assets/img/bg.jpg);
@@ -557,18 +572,67 @@ textarea {
 }
 
 @media (max-width: 768px) {
-.nav {
-    display: none;
+.rightside {
+    margin-right: 45px;
+    gap: 25px;
 }
+.buter_brodskiy {
+    display: block;
+    z-index: 5;
+}
+.buter_brodskiy:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+.bar {
+    width: 50px;
+    height: 3px;
+    display: block;
+    background: #FFFFFF;
+    margin: 10.5px 0;
+}
+.buter_brodskiy.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.buter_brodskiy.active .bar:nth-child(1) {
+    transform: translateY(12.5px) rotate(45deg);
+}
+.buter_brodskiy.active .bar:nth-child(3) {
+    transform: translateY(-12.5px) rotate(-45deg);
+}
+.nav {
+    z-index: 2;
+    position: fixed;
+    right: -620px;
+    gap: 0;
+    top: 0;
+    background-color: #000000;
+    background-size: auto;
+    width: 610px;
+    height: 100%;
+    text-align: flex-start;
+    transition: all 0.3s;
+}
+.nav-list {
+    flex-direction: column;
+    margin-top: 135px;
+    margin-left: 95px;
+    gap: 16.5px;
+    justify-content: flex-start;
+}
+.nav-item {
+    font-size: 35px;
+    line-height: 72px;
+}
+.nav.active {
+    right: 0;
+}
+
 .logo {
     padding-left: 40px
 }
 .header-container {
     background-position: -5px -30px;
     background-size: auto 620px;
-}
-.lang {
-    padding-right: 120px;
 }
 
 .hero-container {
@@ -735,7 +799,22 @@ textarea {
 }
 }
 
+@media (max-width: 700px) {
+.nav {    
+    width: 100%;
+    height: 100%;
+    }
+}
+
 @media (max-width: 480px) {
+.header-container {
+    background-position: -5px -30px;
+}
+
+.hero-container {
+    height: 500px;
+    background-position: center center;
+}
 
 .season-buttons {
     display: flex;
@@ -763,12 +842,16 @@ textarea {
 .line {
     max-width: 250px;
 }
-.lang {
-    padding-right: 80px;
-}
 .skill-item {
     padding: 0;
     flex-basis: 0;
 }
-}
 
+@media (max-width: 350px) {
+.logo {
+    padding-left: 20px
+}
+.rightside {
+    margin-right: 25px;
+}
+}
