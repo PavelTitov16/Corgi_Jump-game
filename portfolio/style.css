@@ -569,6 +569,20 @@ textarea {
     max-width: 364px;
 }
 }
+@media (max-width: 830px) {
+
+.skills-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding-top: 45px;
+}
+.skill-item {
+    max-width: 350px;
+    flex-basis: auto;
+}
 
 @media (max-width: 768px) {
 .rightside {
@@ -812,7 +826,7 @@ textarea {
 
 @media (max-width: 480px) {
 .header-container {
-    background-position: -400px -30px;
+    background-position: -420px -30px;
 }
 
 .hero-container {
