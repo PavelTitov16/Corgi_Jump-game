@@ -295,10 +295,41 @@ h3 {
     justify-content: center;
     gap: 25px;
 }
+.season-button {
+    background: transparent;
+    border: 2px solid #BDAE82;
+    border-radius: 0px;
+    height: 55px;
+    width: 220px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    color: #BDAE82;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.season-button:hover {
+    color: #FFFFFF;
+}
+.season-button.active {
+    background: #BDAE82;
+    color: #000000;
+    border: 0;
+}
+.season-button.active:hover {
+    color: #FFFFFF;
+}
 .image {
     width: 450px;
     height: 560px;
 }
+
 #video_id {
     margin-bottom: 60px;
 }

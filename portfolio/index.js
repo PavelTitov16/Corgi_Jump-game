@@ -1,37 +1,87 @@
-const buter_brodskiy = document.querySelector(".buter_brodskiy");
-const nav = document.querySelector(".nav");
-const navLinks = document.querySelectorAll(".nav-link")
+const buter_brodskiy = document.querySelector('.buter_brodskiy');
+const nav = document.querySelector('.nav');
+const navLinks = document.querySelectorAll('.nav-link');
+const seasonBtns = document.querySelectorAll('.season-button');
+const seasonBtnsParent = document.querySelector('.season-buttons');
+const seasonImages = document.querySelectorAll('.image');
+
 
 buter_brodskiy.addEventListener("click", () => {
     buter_brodskiy.classList.toggle("active");
     nav.classList.toggle("active");
-})
+});
 
 navLinks.forEach(navLink => navLink.addEventListener("click", () => {
     buter_brodskiy.classList.remove("active");
     nav.classList.remove("active");
-}))
+}));
 
-console.log(` TOTAL: 85 / 85 \n
-1. Вёрстка соответствует макету. Ширина экрана 768px +48 \n
-- блок <header> +6 \n
-- секция hero +6 \n
-- секция skills +6 \n 
-- секция portfolio +6 \n
-- секция video +6 \n
-- секция price +6 \n
-- секция contacts +6 \n
-- блок <footer> +6  \n
-2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки +15 \n
-- нет полосы прокрутки при ширине страницы от 1440рх до 768рх +5 \n
-- нет полосы прокрутки при ширине страницы от 768рх до 480рх +5 \n
-- нет полосы прокрутки при ширине страницы от 480рх до 320рх +5 \n
-3. На ширине экрана 768рх и меньше реализовано адаптивное меню +22 \n
-- при ширине страницы 768рх панель навигации скрывается, появляется бургер-иконка +2 \n   
-- при нажатии на бургер-иконку справа плавно появляется адаптивное меню, бургер-иконка изменяется на крестик +4 \n
-- высота адаптивного меню занимает всю высоту экрана. При ширине экрана 768-620рх вёрстка меню соответствует макету, когда экран становится уже, меню занимает всю ширину экрана +4 \n
-- при нажатии на крестик адаптивное меню плавно скрывается уезжая за правую часть экрана, крестик превращается в бургер-иконку +4 \n
-- бургер-иконка, которая при клике превращается в крестик, создана при помощи css-анимаций без использования изображений +2 \n
-- ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям +2 \n
-- при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку +4 `)
+seasonBtnsParent.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target && target.classList.contains('season-button')) {
+        seasonImages.forEach((img, index) => img.src = `./assets/img/${target.dataset.season}/${index + 1}.jpg`);
+    }
+  });
+
+function preloadWinterImages() {
+  for(let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.src = `./assets/img/winter/${i}.jpg`;
+  }
+}
+preloadWinterImages();
+
+function preloadSpringImages() {
+  for(let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.src = `./assets/img/spring/${i}.jpg`;
+  }
+}
+preloadSpringImages();
+
+function preloadSummerImages() {
+  for(let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.src = `./assets/img/summer/${i}.jpg`;
+  }
+}
+preloadSummerImages();
+
+function preloadAutumnImages() {
+    for(let i = 1; i <= 6; i++) {
+      const img = new Image();
+      img.src = `./assets/img/autumn/${i}.jpg`;
+    }
+  }
+  preloadAutumnImages();
+
+/*function changeImage(event) {
+    if (btN.classList.contains("winter")) {
+        btN.addEventListener('click', () => {
+            portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);
+         });
+    }
+  }
+
+/*btn.addEventListener('click', () => {
+    portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);
+ });
+
+ btn.addEventListener('click', () => {
+    portfolioImages.forEach((img, index) => img.src = `./assets/img/spring/${index + 1}.jpg`);
+ });
+
+ btn.addEventListener('click', () => {
+    portfolioImages.forEach((img, index) => img.src = `./assets/img/summer/${index + 1}.jpg`);
+ });
+
+ btN.addEventListener('click', () => {
+    portfolioImages.forEach((img, index) => img.src = `./assets/img/autumn/${index + 1}.jpg`);
+ });
+/*function changeImage(event) {
+    if(event.target.classList.contains('button_2')) {
+        portfolioImages.forEach((img, index) => img.src = ./assets/img/winter/${index + 1}.jpg);
+});
+    }*/
+    
 
