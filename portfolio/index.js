@@ -16,14 +16,47 @@ navLinks.forEach(navLink => navLink.addEventListener("click", () => {
     nav.classList.remove("active");
 }));
 
+/*
 seasonBtnsParent.addEventListener('click', (event) => {
     const target = event.target;
     if (target && target.classList.contains('season-button')) {
         seasonImages.forEach((img, index) => img.src = `./assets/img/${target.dataset.season}/${index + 1}.jpg`);
-    }
-  });
+    })
+  }
+}
+  */
+function changeImage(event) {
+    seasonBtnsParent.addEventListener('click', (event) => {
+        if (event.target && event.target.classList.contains('season-button')) {
+            seasonImages.forEach((img, index) => img.src = `./assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
+        }
+      });
+}
+    changeImage();
+    
+function changeClass() {
+    seasonBtns.forEach(item => {
+        item.addEventListener('click', (event) => {
+            seasonBtns.forEach(button => {
+                button.classList.remove('season-button_active');
+            })
+            item.classList.add('season-button_active');
+        })
+    })
+}
+    changeClass();
 
-function preloadWinterImages() {
+function preloadImages(season) {
+    for(let i = 1; i <= 6; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${season}/${i}.jpg`;
+    }
+  }
+['winter','summer', 'spring', 'autumn'].forEach(season => {
+    preloadImages(season);
+});
+
+/*function preloadWinterImages() {
   for(let i = 1; i <= 6; i++) {
     const img = new Image();
     img.src = `./assets/img/winter/${i}.jpg`;
@@ -55,13 +88,7 @@ function preloadAutumnImages() {
   }
   preloadAutumnImages();
 
-/*function changeImage(event) {
-    if (btN.classList.contains("winter")) {
-        btN.addEventListener('click', () => {
-            portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);
-         });
-    }
-  }
+
 
 /*btn.addEventListener('click', () => {
     portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);

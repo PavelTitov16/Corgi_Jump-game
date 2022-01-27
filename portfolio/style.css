@@ -317,12 +317,20 @@ h3 {
 .season-button:hover {
     color: #FFFFFF;
 }
-.season-button.active {
+.season-button_active {
     background: #BDAE82;
     color: #000000;
     border: 0;
+    height: 55px;
+    width: 220px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    transition: 0.5s;
 }
-.season-button.active:hover {
+.season-button_active:hover {
     color: #FFFFFF;
 }
 .image {
