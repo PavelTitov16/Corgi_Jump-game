@@ -61,6 +61,10 @@ let lang = document.querySelector('lang');
     function getTranslate(language) {
         langItems.forEach(item => {
             item.textContent = i18Obj[language][item.dataset.i18];
+            if (item.placeholder) {
+                item.placeholder = i18Obj[language][item.dataset.i18];
+                item.textContent = '';
+            }
         })
     };
 
