@@ -31,7 +31,7 @@ function changeImage() {
     
 function changeClass() {
     seasonBtns.forEach(item => {
-        item.addEventListener('click', (event) => {
+        item.addEventListener('click', () => {
             seasonBtns.forEach(button => {
                 button.classList.remove('season-button_active');
             })
@@ -52,7 +52,31 @@ function preloadImages(season) {
 });
 
 /* Translation / Перевод */
+import i18Obj from './js/translate.js';
+const ruButton = document.querySelector('.lang-ru');
+const enButton = document.querySelector('.lang-en');
+const langItems = document.querySelectorAll('[data-i18]');
+let lang = document.querySelector('lang');
 
+    function getTranslate(language) {
+        langItems.forEach(item => {
+            item.textContent = i18Obj[language][item.dataset.i18];
+        })
+    };
+
+    ruButton.addEventListener('click', () => {
+        getTranslate('ru');
+        enButton.classList.remove('active');
+        ruButton.classList.add('active');
+        lang = "ru";
+    });
+
+    enButton.addEventListener('click', () => {
+        getTranslate('en');
+        ruButton.classList.remove('active');
+        enButton.classList.add('active');
+        lang = "en";
+    });
 
 /* Swtich Theme */
 

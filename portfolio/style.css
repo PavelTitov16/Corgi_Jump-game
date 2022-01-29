@@ -137,7 +137,20 @@ body {
     display: flex;
     gap: 10px;
 }
-.en {
+.lang-en {
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.lang-en.active {
+    color: #BDAE82;
+}
+.lang-ru {
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.lang-ru.active {
     color: #BDAE82;
 }
 .rightside {
