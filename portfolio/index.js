@@ -2,10 +2,12 @@
 const buter_brodskiy = document.querySelector('.buter_brodskiy');
 const nav = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav-link');
+const shdwBox = document.querySelector('.shadow-box');
 
 buter_brodskiy.addEventListener('click', () => {
     buter_brodskiy.classList.toggle('active');
     nav.classList.toggle('active');
+    shdwBox.classList.toggle('active');
 });
 
 navLinks.forEach(navLink => navLink.addEventListener('click', () => {
@@ -55,10 +57,16 @@ const buttonLight = document.querySelector('.switch-button');
 const bodyLight = document.querySelector('body');
 const heroLight = document.querySelector('.hero-container');
 const contactsLight = document.querySelector('.contact-container');
+const logoLight = document.querySelector('.logo');
+const iconsLight = document.querySelectorAll('.social-icon');
 
 buttonLight.addEventListener('click', () => {
   buttonLight.classList.toggle('light');
   heroLight.classList.toggle('light');
   contactsLight.classList.toggle('light');
   bodyLight.classList.toggle('switch-theme');
+  logoLight.classList.toggle('light');
+  iconsLight.forEach(icon => {
+    icon.classList.toggle('light');
+  })
 });
