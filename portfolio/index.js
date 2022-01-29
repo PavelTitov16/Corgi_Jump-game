@@ -51,6 +51,9 @@ function preloadImages(season) {
     preloadImages(season);
 });
 
+/* Translation / Перевод */
+
+
 /* Swtich Theme */
 
 const buttonLight = document.querySelector('.switch-button');
