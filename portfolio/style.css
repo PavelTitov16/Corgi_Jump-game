@@ -173,10 +173,6 @@ body {
 }
 
 /*Switch Theme*/
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);}
-}
 .switch-button {
     background: transparent;
     filter: invert(7%) sepia(33%) saturate(299%) hue-rotate(338deg) brightness(102%) contrast(102%);
@@ -189,10 +185,6 @@ body {
 .switch-button:hover {
     cursor: pointer;  
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
-}
-.switch-button:active {
-    animation: rotate 6s linear infinite;
-    line-height: 120px;
 }
 
 .switch-button.light {
