@@ -9,10 +9,36 @@
 </head>
 <body>
     <header class="header-container">
+        <div class="line" id="video_id">
+            <h2 class="section-title" id="vid-title">Video</h2>
+        </div>
     </header>
     <main>
+        <section class="section" id="video">
+            <div class="video-container">
+                <div class="player">
+                    <video class="video" src="./assets/video/video.mp4"></video>
+                    <div class="poster"></div>
+                    <button class="button_3"></button>
+                    <div class="controls">
+                        <div class="play_button play"></div>
+                        <input type="range" min="0" max="10" step="0.05" value="3" class="video_length">
+                        <div class="volume_button volume_on"></div>
+                        <input type="range" min="0" max="10" step="0.05" value="3" class="volume">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-git">
+                <p class="footer-text">©</p>
+                <p class="footer-text">2022</p>
+                <p class="footer-text"><a class="link" href="https://github.com/PavelTitov16">github</a></p>
+            </div>
+            <div class="footer-text"><a class="link" href="https://rs.school/js/" id="rss">Rolling Scopes School</a></div>
+        </div>
     </footer>
     <script type="module" src="index.js"></script>
 </body>
