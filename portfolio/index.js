@@ -1,4 +1,3 @@
-
 /* Adaptive Menu */
 const buter_brodskiy = document.querySelector('.buter_brodskiy');
 const nav = document.querySelector('.nav');
