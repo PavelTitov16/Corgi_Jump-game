@@ -69,3 +69,23 @@ button.addEventListener('click', togglePlay);
 btnPlay.addEventListener('click', togglePlay);
 muteBtn.addEventListener('click', videoMute);
 
+video.addEventListener('ended', () => { 
+    button.classList.toggle('active');
+    btnPlay.classList.remove('pause');
+    btnPlay.classList.add('play');
+});
+/*function progressUpd {
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexbasis = `${percent}%`; */
+/*onst progressTimeLine = (e) => {
+    const newTime = e.offsetX / progressWrapper.offsetWidth
+    progressBar.style.width = `${newTime * 100}%`
+    video.currentTime = newTime * video.duration
+  }
+
+  progressWrapper.addEventListener('click', progressTimeLine)*/
+/*
+range.addEventListener('change', rangeUpdate);
+range.addEventListener('mousemove', rangeUpdate);
+video.addEventListener('timeUpdate', rangeUpdate);
+ */
