@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>custom-video</title>
+</head>
+<body>
+    <header class="header-container">
+        <div class="line" id="video_id">
+            <h2 class="section-title" id="vid-title">Video</h2>
+        </div>
+    </header>
+    <main>
+        <section class="section" id="video">
+            <div class="video-container">
+                <div class="player">
+                    <video class="video" src="./assets/video/video.mp4"></video>
+                    <div class="poster"></div>
+                    <button class="button_3"></button>
+                    <div class="controls">
+                        <div class="play_button play"></div>
+                        <input type="range" min="0" max="60" step="0.01" value="0" class="progress">
+                        <div class="volume_button volume_on"></div>
+                        <input type="range" min="0" max="1" step="0.01" value="0.3" class="volume">
+                        <div class="fullscreen"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-git">
+                <p class="footer-text">©</p>
+                <p class="footer-text">2022</p>
+                <p class="footer-text"><a class="link" href="https://github.com/PavelTitov16">github</a></p>
+            </div>
+            <div class="footer-text"><a class="link" href="https://rs.school/js/" id="rss">Rolling Scopes School</a></div>
+        </div>
+    </footer>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
+
