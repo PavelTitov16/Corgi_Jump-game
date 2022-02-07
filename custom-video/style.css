@@ -150,6 +150,7 @@ body {
     justify-content: space-around;
     align-items: center;
     border: 1px solid var(--color-section);
+    border-top: 0;
     height: 60px;
     width: 100%;
     padding: 20px;
@@ -172,10 +173,12 @@ body {
     background-image: url(./assets/svg/pause.svg);
 }
 .progress {
-    background: linear-gradient(to right, #bdae82 0%, #bdae82 0%, #c8c8c8 0%, #c8c8c8 100%);
-    width: calc(80% - 160px);
+    background: linear-gradient(to right, var(--color-section) 0%, var(--color-section) 0%, var(--color-text) 0%, var(--color-text) 100%);
+    width: 70%;
     height: 10px;
     outline: none;
+    border: solid 2px var(--color-section);
+    border-radius: 8px;
     transition: background 450ms ease-in;
     -webkit-appearance: none;
 }
@@ -185,13 +188,15 @@ body {
     border-radius: 50%;
     -webkit-appearance: none;
     cursor: ew-resize;
-    background: var(--color-text);
+    background: var(--color-section);
 }
 .volume_button {
     width: 40px;
     height: 40px;
     cursor: pointer;
     transition: 0.3s;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .volume_button:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
@@ -204,11 +209,13 @@ body {
 }
 .volume {
     display:inline-block;
-    background: linear-gradient(to right, #bdae82 0%, #bdae82 30%, #c8c8c8 30%, #c8c8c8 100%);
+    background: linear-gradient(to right, var(--color-section) 0%, var(--color-section) 30%, var(--color-text) 30%, var(--color-text) 100%);
     cursor:pointer;
     width: calc(20% - 40px);
     height: 10px;
     outline: none;
+    border: solid 2px var(--color-section);
+    border-radius: 8px;
     transition: background 450ms ease-in;
     -webkit-appearance: none;
 }
@@ -218,9 +225,19 @@ body {
     border-radius: 50%;
     -webkit-appearance: none;
     cursor: ew-resize;
-    background: #fff;
+    background: var(--color-section);
 }
-
+.fullscreen {
+    background-image: url(./assets/svg/fullScreen.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    filter: invert(80%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
 /* Controls */
 
 .footer-container {
