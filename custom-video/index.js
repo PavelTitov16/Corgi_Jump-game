@@ -53,7 +53,9 @@ function changeVolume() {
 
 volume.addEventListener('change', function () {
     video.volume = volume.value;
-    lastVideoVolume = volume.value;
+    if (volume.value != 0){
+        lastVideoVolume = volume.value;
+      }
     if (video.volume == 0) {
         onVideoMute();
     } else {
