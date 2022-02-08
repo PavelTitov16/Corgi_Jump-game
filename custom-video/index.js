@@ -18,6 +18,7 @@ window.addEventListener('load', function () {
 /* Play - Pause */
 function togglePlay() {
     if (video.paused) {
+        progress.max = video.duration;
         video.play();
         progressId = setInterval(changeProgress, 100);
         screenSaver.classList.add('active');
