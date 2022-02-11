@@ -214,6 +214,7 @@ main {
     background-repeat: no-repeat;
     filter: invert(72%) sepia(43%) saturate(374%) hue-rotate(197deg) brightness(94%) contrast(89%);
     transition: 0.5s;
+    margin-right: 20px;
 }
 .rss:hover {
     filter: invert(20%) sepia(77%) saturate(3235%) hue-rotate(301deg) brightness(94%) contrast(99%);
@@ -227,11 +228,13 @@ main {
 }
 /* Footer */
 
+/* added JS */
 .movie {
     margin: 20px;
     width: 300px;
     height: 500px;
     border-radius: 20px;
+    display: flex;
     overflow: hidden;
     position: relative;
     cursor: pointer;
@@ -244,6 +247,7 @@ main {
 }
 .movie-content {
     transition: transform 0.6s;
+    flex: 1;
 }
 .movie-content.active {
     transform: rotateY(-180deg);
@@ -252,9 +256,12 @@ main {
 .front {
     transition: all 0.7s;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
     visibility: visible;
     background-color: var(--color-transparent);
     width: 100%;
+    height: 100%;
 }
 .front.active {
     transform: rotateY(-180deg);
@@ -300,6 +307,7 @@ main {
     font-weight: normal;
     font-size: 25px;
     letter-spacing: 0.5px;
+    margin-top: 10px;
 }
 .movie img {
     width: 100%;
@@ -307,13 +315,15 @@ main {
 .movie-title {
     color: var(--color-text);
     display: flex;
+    flex: 1;
+    align-items: center;
     justify-content: center;
     padding: 10px 10px;
     letter-spacing: 0.5px;
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 19px;
 }
 .movie-info {
     color: var(--color-date);
@@ -371,3 +381,44 @@ main {
     position: absolute;
     left: 15px; right: 15px; top: 15px; bottom: 15px;
 }
+/* added JS */
+
+@media (max-width: 1419px) {
+    .header-container {
+        max-width: 1300px;
+    }
+    main {
+        max-width: 1150px;
+        gap: 50px;
+    }
+    .footer-container {
+        max-width: 1300px;
+    }
+    }
+
+    @media (max-width: 1119px) {
+        main {
+            max-width: 900px;
+            gap: 20px;
+        }
+    }
+    @media (max-width: 768px) {
+        .header-container {
+            max-width: 700px;
+        }
+        main {
+            max-width: 700px;
+            gap: 20px;
+        }
+        .footer-container {
+            max-width: 700px;
+        }
+        .search {
+            max-width: 300px;
+        }
+    }
+    @media (max-width: 450px) {
+        .search {
+            max-width: 170px;
+        }
+    }

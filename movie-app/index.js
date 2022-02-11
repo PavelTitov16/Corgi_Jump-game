@@ -1,4 +1,3 @@
-
 /* Get Data & Show Data */
 const apiKey = `b00fd67eb6b3766f4aefa4a4cf2c18c6`;
 const apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`;
@@ -32,10 +31,14 @@ const showData = (data) => {
     <section class="back">
         <h3 class="back-title">Overview:</h3>
         <p class="back-text">${result.overview}</p>
+        <h3 class="back-title">Popularity:</h3>
+        <progress max="10" value="${result.vote_average}"></progress>
+        <h3 class="back-title">Release Date:</h3>
         <span class="movie-info">${result.release_date}</span>
     </section>  
     </div>`
 
+    /* Animation */
     const frontCard = movie.querySelector('.front');
     const backCard = movie.querySelector('.back');
     const movContent = movie.querySelector('.movie-content');
@@ -45,6 +48,14 @@ const showData = (data) => {
       frontCard.classList.toggle("active");
       backCard.classList.toggle("active");
     })
+
+    backCard.addEventListener('mouseout', () => {
+      movContent.classList.remove("active");
+      frontCard.classList.remove("active");
+      backCard.classList.remove("active");
+    })
+    /* Animation */
+
     main.appendChild(movie);
   });
 }
@@ -56,11 +67,7 @@ const colorRate = (rate) => {
     return "red";
   }
   return "gray";
-}
-
-/*movie.addEventListener('mousedown', () => {
-  backCard.classList.remove("active");
-})*/
+};
 
 /* Search Data */
 const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
@@ -78,11 +85,15 @@ const searchData = async (query) => {
 };
 
 searchBtn.addEventListener('click', () => {
-  searchData(search.value);
+  if (search.value) {
+    searchData(search.value);
+  }
 });
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(event);
-  searchData(search.value);
+  if (search.value) {
+    searchData(search.value);
+  }
 });
 /* Search Data */
