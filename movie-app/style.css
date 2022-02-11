@@ -114,8 +114,6 @@ form {
     padding-left: 18px;
     font-size: 20px;
     transition: 0.5s;
-}
-input[type=text] {
     color: var(--color-space);
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     font-style: normal;
@@ -130,7 +128,7 @@ input[type=text] {
     font-size: 20px;
 }
 .find {
-    background-image: var(--light-speed);
+    background-image: var(--rainbow);
     border-radius:5px;
     height: 40px;
     width: 120px;

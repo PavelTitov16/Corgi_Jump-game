@@ -1,7 +1,8 @@
 
 /* Get Data & Show Data */
-const apiUrl = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b00fd67eb6b3766f4aefa4a4cf2c18c6";
-const imgUrl = "https://image.tmdb.org/t/p/w500";
+const apiKey = `b00fd67eb6b3766f4aefa4a4cf2c18c6`;
+const apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`;
+const imgUrl = `https://image.tmdb.org/t/p/w500`;
 console.log(apiUrl);
 
 const main = document.getElementById("main");
@@ -22,16 +23,16 @@ const showData = (data) => {
     let movie = document.createElement('article');
     movie.classList.add("movie");
     movie.innerHTML = `
-    <div class="front">
+    <section class="front">
       <img src="${imgUrl}${result.poster_path}" "alt="poster"/>
       <div class="${colorRate(result.vote_average)}">${result.vote_average}</div>
       <h2 class="movie-title">${result.title}</h2>
-    </div>
-    <div class="back">
+    </section>
+    <section class="back">
         <h3>Overview:</h3>
         <p>${result.overview}</p>
         <span class="movie-title">${result.release_date}</span>
-    </div>`
+    </section>`
 
     const frontCard = movie.querySelector('.front');
     const backCard = movie.querySelector('.back');
@@ -56,3 +57,26 @@ const colorRate = (rate) => {
 /*movie.addEventListener('mousedown', () => {
   backCard.classList.remove("active");
 })*/
+/* Search Data */
+const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
+const form = document.getElementById("form");
+const search = document.querySelector(".search");
+const searchBtn = document.querySelector(".find");
+
+const searchData = async (query) => {
+  const res = await fetch(searchUrl + query);
+  const foundTerm = await res.json();
+
+  console.log(foundTerm);
+
+  showData(foundTerm);
+};
+
+searchBtn.addEventListener('click', () => {
+  searchData(search.value);
+});
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(event);
+  searchData(search.value);
+});
