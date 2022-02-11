@@ -23,21 +23,25 @@ const showData = (data) => {
     let movie = document.createElement('article');
     movie.classList.add("movie");
     movie.innerHTML = `
-    <section class="front">
-      <img src="${imgUrl}${result.poster_path}" "alt="poster"/>
-      <div class="${colorRate(result.vote_average)}">${result.vote_average}</div>
-      <h2 class="movie-title">${result.title}</h2>
+    <div class="movie-content">
+      <section class="front">
+        <img src="${imgUrl}${result.poster_path}" "alt="poster"/>
+        <div class="${colorRate(result.vote_average)}">${result.vote_average}</div>
+        <h2 class="movie-title">${result.title}</h2>
     </section>
     <section class="back">
-        <h3>Overview:</h3>
-        <p>${result.overview}</p>
-        <span class="movie-title">${result.release_date}</span>
-    </section>`
+        <h3 class="back-title">Overview:</h3>
+        <p class="back-text">${result.overview}</p>
+        <span class="movie-info">${result.release_date}</span>
+    </section>  
+    </div>`
 
     const frontCard = movie.querySelector('.front');
     const backCard = movie.querySelector('.back');
+    const movContent = movie.querySelector('.movie-content');
 
     movie.addEventListener('click', () => {
+      movContent.classList.toggle("active");
       frontCard.classList.toggle("active");
       backCard.classList.toggle("active");
     })
@@ -57,6 +61,7 @@ const colorRate = (rate) => {
 /*movie.addEventListener('mousedown', () => {
   backCard.classList.remove("active");
 })*/
+
 /* Search Data */
 const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
 const form = document.getElementById("form");
@@ -80,3 +85,4 @@ form.addEventListener("submit", (event) => {
   console.log(event);
   searchData(search.value);
 });
+/* Search Data */

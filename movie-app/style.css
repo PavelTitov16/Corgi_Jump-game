@@ -14,6 +14,7 @@ font-family: 'Roboto', sans-serif; */
     --color-positive: #0EB927;
     --color-negative: #DD3E07;
     --color-neutral: #808080;
+    --color-date: #4FAFB4;
 }
 /* Обнуление */
 
@@ -227,47 +228,78 @@ main {
 /* Footer */
 
 .movie {
-    background-color: var(--color-transparent);
-    border-radius: 20px;
-    box-shadow: 0 4px 5px;
-    overflow: hidden;
-    position: relative;
     margin: 20px;
     width: 300px;
     height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
     cursor: pointer;
-    transition: 0.5s ease-in;
-    overflow-y: hidden;
+    text-align: center;
+    perspective: 600px; 
+    transition: all 0.6s
 }
 .movie:hover {
     transform: translateY(-20px);
 }
-.front.active {
-    visibility: hidden;
+.movie-content {
+    transition: transform 0.6s;
 }
-.back.active {
+.movie-content.active {
+    transform: rotateY(-180deg);
+    transition: transform 0.7s;
+}
+.front {
+    transition: all 0.7s;
+    opacity: 1;
+    visibility: visible;
+    background-color: var(--color-transparent);
+    width: 100%;
+}
+.front.active {
+    transform: rotateY(-180deg);
+    transition: transform 0.6s;
+    visibility: hidden;
+    opacity: 0;
+}
+.back {
     background-color: var(--color-transparent);
     position: absolute;
     overflow: auto;
     left: 0;
-    bottom: 0;
+    top: 0;
     right: 0;
+    bottom: 0;
+    opacity: 0;
     width: 100%;
     height: 100%;
-    visibility: visible;   
-    opacity: 0;
-    color: var(--color-text);   
+    visibility: hidden;   
+    padding: 15px;
+    text-align: center;   
+    transition: all 0.7s;
+}
+.back.active {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(-180deg);
+}
+.back-text {
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     font-style: normal;
     font-weight: normal;
-    background-color: var(--color-negative);
-    transform: rotateY(-180deg);
-    transition: transform 0.3s ease-in;
+    font-size: 18px;
+    color: var(--color-text);
+    padding: 10px 10px;
 }
-.back {
-    visibility: hidden;   
-    opacity: 0;
-    background-color: var(--color-negative);
+.back-title {
+    color: var(--color-space);
+    display: flex;
+    justify-content: center;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    letter-spacing: 0.5px;
 }
 .movie img {
     width: 100%;
@@ -282,6 +314,17 @@ main {
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
+}
+.movie-info {
+    color: var(--color-date);
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300px;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    padding: 10px 10px;
 }
 .green {
     background-color: var(--color-positive);
@@ -328,32 +371,3 @@ main {
     position: absolute;
     left: 15px; right: 15px; top: 15px; bottom: 15px;
 }
-.movieback {
-    background-color: var(--color-transparent);
-    width: 100%;
-    height: 100%;
-    transition: transform 0.4s ease-in;
-    transform-style: preserve-3d;
-}
-
-
-
-/*
-.movie .movieback {
-  transform: rotateY(-180deg);
-  transition: transform 0.3s ease-in;
-}   
-
-.back {
-    background-color: var(--color-transparent);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;   
-    opacity: 0;
-    color: var(--color-text);   
-    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-}
-*/
