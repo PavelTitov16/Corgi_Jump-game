@@ -1,0 +1,117 @@
+body {
+    margin: 0 auto;
+}
+.container { 
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto;
+}
+.game {
+    background-image: url(./assets/images/bg.png);
+    width: 800px;
+    height: 600px;
+    background-size: cover;
+    
+}
+.corgi {
+    width: 100px;
+    height: 100px;
+    background-image: url(./assets/images/corgis.png);
+    background-size: cover;
+    position: relative;
+    top: 375px;
+    transform:scaleX(-1);
+}
+.sheep {
+    width: 70px;
+    height: 70px;
+    background-image: url(./assets/images/sheep.png);
+    background-size: cover;
+    position: relative;
+    top: 290px;
+    left: 600px;
+    animation: sheepGo 1s infinite linear;
+}
+
+@keyframes sheepGo {
+    0% {
+        left: 600px;
+    }
+    100% {
+        left: -50px;
+    }
+}
+.jump {
+    animation: corgiJump 1s infinite linear;
+}
+@keyframes corgiJump {
+    0% {
+        top: 375px;
+    }
+    30% {
+        top: 330px;
+    }
+    50% {
+        top: 290px;
+    }
+    80% {
+        top: 330px;
+    }
+    100% {
+        top: 375px;
+    }
+}
+
+/* Footer */
+.footer-wrapper {
+    height: 50px;
+    width: 100%;
+    background: var(--color-transparent);
+}
+.footer-container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+.footer-git{
+    display: flex;
+    align-items: center;
+    width: 182px;
+    color: var(--color-space);
+    padding-left: 20px;
+}
+.footer-text {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    color: var(--color-space);
+    margin-right: 20px;
+}
+.rss {
+    width: 100px;
+    height: 40px;
+    background-image: url("./assets/rs_school_js.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(72%) sepia(43%) saturate(374%) hue-rotate(197deg) brightness(94%) contrast(89%);
+    transition: 0.5s;
+    margin-right: 20px;
+}
+.rss:hover {
+    filter: invert(20%) sepia(77%) saturate(3235%) hue-rotate(301deg) brightness(94%) contrast(99%);
+}
+.link {
+    color: var(--color-space);
+    transition: 0.5s;
+}
+.link:hover {
+    filter: invert(90%) sepia(77%) saturate(3235%) hue-rotate(301deg) brightness(94%) contrast(99%);
+}
+/* Footer */
