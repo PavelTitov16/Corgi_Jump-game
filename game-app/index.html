@@ -10,15 +10,11 @@
 <body>
     <header class="header-wrapper" id="header">
         <div class="header-container">
-            
+            <p class="tip">press Q for Jump</p> 
+            <p class="tip">press W for Double Jump</p>
         </div>
     </header>
-    <main class="container" id="main">
-        <div class="game">
-            <div class="corgi"></div>
-            <div class="sheep"></div>
-        </div>
-    </main>
+    <canvas id="canvas" width="1200" height="600"></canvas>
     <footer class="footer-wrapper" id="footer">
         <div class="footer-container">
             <div class="footer-git">
@@ -32,3 +28,18 @@
     <script src="index.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+<div class="game">
+    <div id="corgi"></div>
+    <div id="sheep"></div>
+</div>
+
+
+<p class="score_wrapper">
+    <span>Score: </span><span class="ScoreVal">0</span>
+</p>
