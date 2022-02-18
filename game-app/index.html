@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,22 @@
     <title>Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header class="header-wrapper" id="header">
-        <div class="header-container">
-            <p class="tip">press Q for Jump</p> 
-            <p class="tip">press W for Double Jump</p>
+    <header class="header-container" id="header">
+        <div class="logo"></div>
+        <div class="sky">
+            <a class="title" alt="Corgi Jump!"></a>
+        </div>
+        <div class="tips">
+            <div class="moves">
+                <p class="tip">Press <span class="letter">Q</span> for Jump</p>
+                <p class="tip">Press <span class="letter">W</span> for Double Jump</p>
+            </div>
+            <div class="conditions">
+                <p class="task">Avoid obstacles!</p>
+                <div class="example"></div>
+            </div>
         </div>
     </header>
     <canvas id="canvas" width="1200" height="600"></canvas>
@@ -27,19 +39,5 @@
     </footer>
     <script src="index.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-<div class="game">
-    <div id="corgi"></div>
-    <div id="sheep"></div>
-</div>
-
-
-<p class="score_wrapper">
-    <span>Score: </span><span class="ScoreVal">0</span>
-</p>

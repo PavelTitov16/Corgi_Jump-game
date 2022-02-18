@@ -156,7 +156,7 @@ addEventListener('keydown', ({ keyCode }) => {
         case 81:
             console.log('jump');
             if (!keyS.jump.pressed && corgi.velocity.y === 0) {
-                corgi.velocity.y -= 32;
+                corgi.velocity.y -= 24;
                 keyS.jump.pressed = true;
                 jumpSd.play();
             } else corgi.velocity.y = 0;
@@ -164,7 +164,7 @@ addEventListener('keydown', ({ keyCode }) => {
         case 87:
             console.log('double_jump');
             if (!keyS.double_jump.pressed && corgi.velocity.y === 0) {
-                corgi.velocity.y -= 35;
+                corgi.velocity.y -= 30;
                 keyS.double_jump.pressed = true;
                 doubleJumpSd.play();
             } else corgi.velocity.y = 0;
@@ -203,7 +203,7 @@ setInterval(function () {
 class Score {
     constructor() {
         this.position = {
-            x: 1000,
+            x: 50,
             y: game.height - 580
         }
 
