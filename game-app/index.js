@@ -193,7 +193,7 @@ setInterval(function () {
             && corgi.position.y + corgi.height - 45 > sheep.position.y && corgi.position.y - corgi.height + 45 < sheep.position.y + sheep.height - 45) {
             console.log('lose');
             loseSd.play();
-            location.reload();
+            /*location.reload();*/
         }
     })
 }, 100)
@@ -207,11 +207,14 @@ class Score {
             y: game.height - 580
         }
 
+        this.best = localStorage.getItem('best') || 0;
         this.value = 0;
     }
 
     count() {
         this.value += 1;
+        this.best = Math.max(this.value, this.best);
+        localStorage.setItem('best', score.best);
     }
 
     draw() {
@@ -220,6 +223,7 @@ class Score {
         ctx.lineWIdth = 2;
         ctx.font = '20px Teko';
         ctx.fillText('Score: ' + this.value, this.position.x, this.position.y);
+        ctx.fillText('Best: ' + this.best, 50, game.height - 560);
     }
 
     update() {
@@ -228,6 +232,24 @@ class Score {
 }
 let score = new Score;
 /* Score */
+
+/* Local Storage */
+const countLastResults = () => {
+    const lastGames = localStorage.getItem('lastGames') ? JSON.parse(localStorage.getItem('lastGames')) : [];
+    console.log(lastGames);
+    lastGames.push(score.value);
+    if (lastGames.length > 10) {
+        lastGames.shift();
+    }
+
+    localStorage.setItem('lastGames', JSON.stringify(lastGames));
+
+    let restoredLastGames = JSON.parse(localStorage.getItem('lastGames'));
+
+    console.log(restoredLastGames);
+}
+countLastResults();
+/* Local Storage */
 
 /* Animation */
 function animate() {
