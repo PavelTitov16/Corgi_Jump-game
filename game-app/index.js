@@ -5,16 +5,22 @@ const ctx = game.getContext('2d');
 
 /* Images preload */
 const backGround = new Image;
-backGround.src = 'assets/images/bg.png';
+backGround.src = 'assets/images/BG_Sky.png';
+
+const foreGround = new Image;
+foreGround.src = 'assets/images/Back.png'
+
+const clouds = new Image;
+clouds.src = 'assets/images/BG_Clouds.png'
 
 const sheepImage = new Image;
-sheepImage.src = './assets/images/sheep.png';
+sheepImage.src = './assets/images/Sheep!.png';
 
 const corgiImage = new Image;
-corgiImage.src = './assets/images/puppy.png';
+corgiImage.src = './assets/images/GingerCorgi.png';
 /* Images preload */
 
-/* Sound */
+/* Sounds */
 let backMusic = new Audio();
 backMusic.src = './assets/sounds/mario_bg.mp3';
 /*backMusic.play(); */
@@ -30,21 +36,15 @@ scoreSd.src = './assets/sounds/score.mp3';
 
 let loseSd = new Audio();
 loseSd.src = './assets/sounds/lose.mp3';
-/* Sound */
+/* Sounds */
 
-
-/* Field */
+/* Sky */
 class Background {
     constructor() {
         this.position = {
             x: 0,
             y: 0
         }
-
-        /*this.velocity = {
-            x: -3,
-            y: 0
-        }*/
 
         this.width = canvas.width;
         this.height = canvas.height;
@@ -58,11 +58,74 @@ class Background {
 
     update() {
         this.draw();
-        /*this.position.x += this.velocity.x;*/
     }
 }
 
 const bg = new Background();
+/* Sky */
+
+/* Field */
+class Foreground {
+    constructor() {
+        this.position = {
+            x: 0,
+            y: 0
+        }
+
+        this.velocity = {
+            x: -3.5,
+            y: 0
+        }
+
+        this.width = canvas.width;
+        this.height = canvas.height;
+
+        this.image = foreGround;
+    }
+
+    draw() {
+        ctx.drawImage(foreGround, this.position.x, this.position.y, this.width, this.height);
+        ctx.drawImage(foreGround, this.position.x + this.width, this.position.y, this.width, this.height);
+    }
+
+    update() {
+        this.draw();
+        this.position.x += this.velocity.x;
+    }
+}
+
+const fg = [new Foreground(), new Foreground(), new Foreground()];
+
+class Clouds {
+    constructor() {
+        this.position = {
+            x: 0,
+            y: 0
+        }
+
+        this.velocity = {
+            x: -3.5,
+            y: 0
+        }
+
+        this.width = canvas.width;
+        this.height = canvas.height;
+
+        this.image = clouds;
+    }
+
+    draw() {
+        ctx.drawImage(clouds, this.position.x, this.position.y, this.width, this.height);
+        ctx.drawImage(clouds, this.position.x + this.width, this.position.y, this.width, this.height);
+    }
+
+    update() {
+        this.draw();
+        this.position.x += this.velocity.x;
+    }
+}
+
+const cld = [new Clouds(), new Clouds(), new Clouds()];
 /* Field */
 
 /* Corgi */
@@ -71,7 +134,7 @@ const gravity = 1.1;
 class Corgi {
     constructor() {
         this.position = {
-            x: 50,
+            x: 100,
             y: 500
         }
         this.velocity = {
@@ -79,8 +142,8 @@ class Corgi {
             y: 1
         }
 
-        this.width = 90;
-        this.height = 90;
+        this.width = 100;
+        this.height = 100;
 
         this.image = corgiImage;
     }
@@ -106,15 +169,15 @@ class Sheep {
     constructor() {
         this.position = {
             x: 1200,
-            y: 520
+            y: 500
         }
         this.velocity = {
             x: -4.5,
             y: 0
         }
 
-        this.width = 80;
-        this.height = 80;
+        this.width = 110;
+        this.height = 110;
 
         this.image = sheepImage;
     }
@@ -193,6 +256,7 @@ setInterval(function () {
             && corgi.position.y + corgi.height - 45 > sheep.position.y && corgi.position.y - corgi.height + 45 < sheep.position.y + sheep.height - 45) {
             console.log('lose');
             loseSd.play();
+            state.current = state.gameOver;
             /*location.reload();*/
         }
     })
@@ -218,7 +282,7 @@ class Score {
     }
 
     draw() {
-        ctx.fillStyle = '#FFF';
+        ctx.fillStyle = '#1e6743';
         ctx.strokeStyle = '#000';
         ctx.lineWIdth = 2;
         ctx.font = '20px Teko';
@@ -255,6 +319,20 @@ countLastResults();
 function animate() {
     requestAnimationFrame(animate);
     bg.update();
+    fg.forEach((elem) => {
+        elem.update();
+        if (elem.position.x + elem.width <= 0) {
+            fg.push(new Foreground);
+            fg.shift();
+        }
+    })
+    cld.forEach((cloud) => {
+        cloud.update();
+        if (cloud.position.x + cloud.width <= 0) {
+            cld.push(new Clouds);
+            cld.shift();
+        }
+    })
     corgi.update();
     sheeps.forEach((sheep) => {
         sheep.update();
@@ -266,10 +344,92 @@ function animate() {
     })
     score.update();
 }
-animate();
 /* Animation */
+animate();
+/* Get Ready */
+class GetReady {
+    constructor() {
+        this.position = {
+            x: 500,
+            y: game.height - 300
+        }
+
+        this.width = 200;
+        this.height = 200;
+
+        this.image = Image;
+    }
+
+    draw() {
+        if (state.current === state.getReady) {
+            ctx.drawImage(Image, this.position.x, this.position.y, this.width, this.height);
+        }
+    }
+
+    update() {
+        this.draw();
+    }
+}
+
+const getReady = GetReady;
+/* Get Ready */
+
+/* Game Over */
+class GameOver {
+    constructor() {
+        this.position = {
+            x: 500,
+            y: game.height - 300
+        }
+
+        this.width = 200;
+        this.height = 200;
+
+        this.image = Image;
+    }
+
+    draw() {
+        if (state.current === state.gameOver) {
+            ctx.drawImage(Image, this.position.x, this.position.y, this.width, this.height);
+        }
+    }
+
+    update() {
+        this.draw();
+    }
+}
+
+const gameOver = GameOver;
+/* Game Over */
+
+const state = {
+    current: 0,
+    getReady: 0,
+    gameOn: 1,
+    gameOver: 2
+}
+
+
+
+game.addEventListener('keydown', function (event) {
+    switch (state.current) {
+        case state.getReady:
+            state.current = state.gameOn;
+            break;
+        case state.gameOn:
+
+            break;
+        case state.gameOver:
+            state.current = state.getReady;
+            break;
+    }
+})
+
+
 
 /*
+clearSetInterval(your_interval_name)
+
 sheeps.forEach((sheep) => {
     if (sheep.x + sheep.width <= 0) {
         score.count();
@@ -277,8 +437,6 @@ sheeps.forEach((sheep) => {
         sheeps.shift();
     }
 })
-
-corgiImage.style.transform = 'rotate(-180deg)'; 
 
 renderImg() {
 
@@ -305,31 +463,9 @@ document.addEventListener('keydown', function () {
     corgiJump();
 }) 
 
-if (sheep[i].x <= 0) {
-            sheeps.
-        }
 */
 
-/*const state = {
-    current: 0,
-    getReady: 0,
-    game: 1,
-    over: 2
-}
 
-game.addEventListener('keydown', function (event) {
-    switch (state.current) {
-        case state.getReady:
-            state.current = state.game;
-            break;
-        case state.game:
-            corgi.lose();
-            break;
-        case state.over:
-            state.current = state.getReady;
-            break;
-    }
-})
 
-clearSetInterval(your_interval_name)
-*/
+
+

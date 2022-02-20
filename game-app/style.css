@@ -16,7 +16,7 @@ canvas {
 
 /* Header */
 .header-container {
-    background-color: #0fc8fe;
+    background-color: #8efff9;
     margin: 0 auto;
     max-width: 1200px;
     height: 90px;
@@ -27,7 +27,7 @@ canvas {
     padding: 0 45px;
 }
 .logo {
-    background-image: url(./assets/images/corgi_fly.png);
+    background-image: url(./assets/images/GingerCorgi_Jump.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 80px;
@@ -65,7 +65,7 @@ canvas {
     content:attr(alt);
     width:150px;
     height:40px;
-    background-color: #fff;
+    background-color: #1e6743;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -73,37 +73,37 @@ canvas {
 .tips {
     display: flex;
     gap: 40px;
-    border: 2px solid #1A2CCE;
+    border: 2px solid #0e21c7;
     padding: 0 20px;
 }
 .tip {
     font-family: 'Roboto', sans-serif;
-    color: antiquewhite;
+    color: #1e6743;
 }
 .letter {
     font-family: 'Roboto', sans-serif;
-    color: #1A2CCE;
+    color: #0e21c7;
     font-style: normal;
     font-weight:bold;
     font-size: 18px;
 }
 .conditions {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
 }
 .task {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight:bold;
-    color: #1A2CCE;
+    color: #0e21c7;
 }
 .example {
-    background-image: url(./assets/images/sheep.png);
+    background-image: url(./assets/images/Sheep!.png);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 40px;
-    width: 40px;
+    height: 70px;
+    width: 70px;
 }
 /* Header */
 
@@ -113,7 +113,7 @@ canvas {
     max-width: 1200px;
     width: 100%;
     height: 63px;
-    background-color: #6ea410;
+    background-color: #49a174;
 }
 .footer-container {
     width: 100%;
@@ -145,7 +145,7 @@ canvas {
     background-image: url("./assets/rs_school_js.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    filter: invert(100%) sepia(40%) saturate(0%) hue-rotate(345deg) brightness(102%) contrast(103%);
+    filter: invert(92%) sepia(13%) saturate(524%) hue-rotate(329deg) brightness(103%) contrast(96%);
     transition: 0.5s;
     margin-right: 20px;
 }
