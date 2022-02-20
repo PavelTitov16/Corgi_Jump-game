@@ -22,8 +22,9 @@ corgiImage.src = './assets/images/GingerCorgi.png';
 
 /* Sounds */
 let backMusic = new Audio();
-backMusic.src = './assets/sounds/mario_bg.mp3';
-/*backMusic.play(); */
+backMusic.src = './assets/sounds/FMT_Game.mp3';
+backMusic.loop = true; 
+backMusic.play(); 
 
 let jumpSd = new Audio();
 jumpSd.src = './assets/sounds/jump!.mp3';
