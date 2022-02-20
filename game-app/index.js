@@ -17,14 +17,20 @@ const sheepImage = new Image;
 sheepImage.src = './assets/images/Sheep!.png';
 
 const corgiImage = new Image;
-corgiImage.src = './assets/images/GingerCorgi.png';
+corgiImage.src = './assets/images/Pembroke.png';
+
+const donutImage = new Image;
+donutImage.src = './assets/images/donut.png';
+
+const boneImage = new Image;
+boneImage.src = './assets/images/Bone.png';
 /* Images preload */
 
 /* Sounds */
 let backMusic = new Audio();
 backMusic.src = './assets/sounds/FMT_Game.mp3';
-backMusic.loop = true; 
-backMusic.play(); 
+backMusic.loop = true;
+backMusic.play();
 
 let jumpSd = new Audio();
 jumpSd.src = './assets/sounds/jump!.mp3';
@@ -34,6 +40,9 @@ doubleJumpSd.src = './assets/sounds/jump.mp3';
 
 let scoreSd = new Audio();
 scoreSd.src = './assets/sounds/score.mp3';
+
+let bonusSd = new Audio();
+bonusSd.src = './assets/sounds/donut.mp3';
 
 let loseSd = new Audio();
 loseSd.src = './assets/sounds/lose.mp3';
@@ -282,6 +291,18 @@ class Score {
         localStorage.setItem('best', score.best);
     }
 
+    bonus() {
+        this.value += 5;
+        this.best = Math.max(this.value, this.best);
+        localStorage.setItem('best', score.best);
+    }
+
+    high_bonus() {
+        this.value += 10;
+        this.best = Math.max(this.value, this.best);
+        localStorage.setItem('best', score.best);
+    }
+
     draw() {
         ctx.fillStyle = '#1e6743';
         ctx.strokeStyle = '#000';
@@ -297,6 +318,96 @@ class Score {
 }
 let score = new Score;
 /* Score */
+
+/* Bone */
+class Bone {
+    constructor() {
+        this.position = {
+            x: 1200,
+            y: getRandomValue(100, 500)
+        }
+        this.velocity = {
+            x: -5,
+            y: 0
+        }
+
+        this.width = 80;
+        this.height = 80;
+
+        this.image = boneImage;
+    }
+
+    draw() {
+        ctx.drawImage(boneImage, this.position.x, this.position.y, this.width, this.height);
+    }
+
+    update() {
+        this.draw();
+        this.position.x += this.velocity.x;
+    }
+}
+const bones = [];
+setInterval(function () {
+    bones.push(new Bone())
+}, 20000);
+
+setInterval(function () {
+    bones.forEach(bone => {
+        if (corgi.position.x + corgi.width - 35 > bone.position.x && corgi.position.x - corgi.width + 35 < bone.position.x + bone.width - 35
+            && corgi.position.y + corgi.height - 35 > bone.position.y && corgi.position.y - corgi.height + 35 < bone.position.y + bone.height - 35) {
+            console.log('bonus');
+            bones.shift();
+            bonusSd.play();
+            score.bonus();
+        }
+    })
+}, 100)
+/* Bone */
+
+/* Donut */
+class Donut {
+    constructor() {
+        this.position = {
+            x: 1200,
+            y: getRandomValue(100, 500)
+        }
+        this.velocity = {
+            x: -6,
+            y: 0
+        }
+
+        this.width = 80;
+        this.height = 80;
+
+        this.image = donutImage;
+    }
+
+    draw() {
+        ctx.drawImage(donutImage, this.position.x, this.position.y, this.width, this.height);
+    }
+
+    update() {
+        this.draw();
+        this.position.x += this.velocity.x;
+    }
+}
+const donuts = [];
+setInterval(function () {
+    donuts.push(new Donut())
+}, 40000);
+
+setInterval(function () {
+    donuts.forEach(donut => {
+        if (corgi.position.x + corgi.width - 40 > donut.position.x && corgi.position.x - corgi.width + 40 < donut.position.x + donut.width - 40
+            && corgi.position.y + corgi.height - 40 > donut.position.y && corgi.position.y - corgi.height + 40 < donut.position.y + donut.height - 40) {
+            console.log('bonus');
+            donuts.shift();
+            bonusSd.play();
+            score.high_bonus();
+        }
+    })
+}, 100)
+/* Donut */
 
 /* Local Storage */
 const countLastResults = () => {
@@ -320,14 +431,14 @@ countLastResults();
 function animate() {
     requestAnimationFrame(animate);
     bg.update();
-    fg.forEach((elem) => {
+    fg.forEach( (elem) => {
         elem.update();
         if (elem.position.x + elem.width <= 0) {
             fg.push(new Foreground);
             fg.shift();
         }
     })
-    cld.forEach((cloud) => {
+    cld.forEach( (cloud) => {
         cloud.update();
         if (cloud.position.x + cloud.width <= 0) {
             cld.push(new Clouds);
@@ -335,12 +446,24 @@ function animate() {
         }
     })
     corgi.update();
-    sheeps.forEach((sheep) => {
+    sheeps.forEach( (sheep) => {
         sheep.update();
         if (sheep.position.x + sheep.width <= 0) {
             score.count();
             scoreSd.play();
             sheeps.shift();
+        }
+    })
+    donuts.forEach( (donut) => {
+        donut.update();
+        if (donut.position.x + donut.width <= 0) {
+            donuts.shift();
+        }
+    })
+    bones.forEach( (bone) => {
+        bone.update();
+        if (bone.position.x + bone.width <= 0) {
+            bones.shift();
         }
     })
     score.update();

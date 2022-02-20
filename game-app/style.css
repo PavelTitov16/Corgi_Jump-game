@@ -27,7 +27,7 @@ canvas {
     padding: 0 45px;
 }
 .logo {
-    background-image: url(./assets/images/GingerCorgi_Jump.png);
+    background-image: url(./assets/images/Pembroke_Jump.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 80px;
@@ -88,8 +88,13 @@ canvas {
     font-size: 18px;
 }
 .conditions {
+    width: 200px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+}
+.points {
+    display: flex; 
     align-items: center;
 }
 .task {
@@ -102,8 +107,22 @@ canvas {
     background-image: url(./assets/images/Sheep!.png);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
+}
+.donut {
+    background-image: url(./assets/images/Donut.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
+}
+.bone {
+    background-image: url(./assets/images/Bone.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
 }
 /* Header */
 
