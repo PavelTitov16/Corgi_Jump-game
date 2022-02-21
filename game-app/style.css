@@ -3,6 +3,7 @@
 }
 
 body {
+    position: relative;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -126,6 +127,35 @@ canvas {
 }
 /* Header */
 
+/* Records */
+.wrapper {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+.popup {
+    width: 1200px;
+    margin: 0 auto;
+}
+.result_block {
+    margin-top: 100px;
+    width: 300px;
+    background-color: rgba(100, 150, 200, 0.7);
+    border: 1px solid #0e21c7;
+    padding: 40px;
+    text-align: center;
+}
+.wrapper.active {
+    display: block;
+}
+.result_block table {
+    width: 100%;
+}
+/* Records */
+
 /* Footer */
 .footer-wrapper {
     margin: 0 auto;
@@ -179,79 +209,3 @@ canvas {
     filter: invert(0%) sepia(77%) saturate(3235%) hue-rotate(301deg) brightness(94%) contrast(99%);
 }
 /* Footer */
-
-/*
-
-.title {
-    display: flex;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    color: antiquewhite;
-}
-
-#canvas {
-    background-image: url(./assets/images/bg.png);
-    background-size: cover;
-}
-
-.container { 
-    width: 100%; 
-    max-width: 800px; 
-    margin: 0 auto;
-}
-.game {
-    background-image: url(./assets/images/bg.png);
-    width: 800px;
-    height: 600px;
-    background-size: cover;
-}
-#corgi {
-    width: 100px;
-    height: 100px;
-    background-image: url(./assets/images/corgis.png);
-    background-size: cover;
-    position: relative;
-    top: 375px;
-    transform:scaleX(-1);
-}
-#sheep {
-    width: 70px;
-    height: 70px;
-    background-image: url(./assets/images/sheep.png);
-    background-size: cover;
-    position: relative;
-    top: 290px;
-    left: 600px;
-    animation: sheepGo 2s infinite linear;
-}
-
-@keyframes sheepGo {
-    0% {
-        left: 600px;
-    }
-    100% {
-        left: -50px;
-    }
-}
-.jump {
-    animation: corgiJump 0.6s linear;
-}
-@keyframes corgiJump {
-    0% {
-        top: 375px;
-    }
-    30% {
-        top: 330px;
-    }
-    50% {
-        top: 290px;
-    }
-    80% {
-        top: 330px;
-    }
-    100% {
-        top: 375px;
-    }
-} */
-
