@@ -20,7 +20,7 @@ const corgiImage = new Image;
 corgiImage.src = './assets/images/Pembroke.png';
 
 const donutImage = new Image;
-donutImage.src = './assets/images/donut.png';
+donutImage.src = './assets/images/Donut.png';
 
 const boneImage = new Image;
 boneImage.src = './assets/images/Bone.png';
@@ -428,7 +428,7 @@ setInterval(function () {
             bonusSd.play();
             score.high_bonus();
         }
-    })
+    });
 }, 100)
 /* Donut */
 
