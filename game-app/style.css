@@ -142,11 +142,12 @@ canvas {
 }
 .result_block {
     margin-top: 100px;
-    width: 300px;
-    background-color: rgba(100, 150, 200, 0.7);
-    border: 1px solid #0e21c7;
+    width: 350px;
+    background-color: rgba(181, 196, 190, 0.7);
     padding: 40px;
     text-align: center;
+    font-size: 23px;
+    color: #0e21c7;
 }
 .wrapper.active {
     display: block;

@@ -372,7 +372,7 @@ class Bone {
 const bones = [];
 setInterval(function () {
     bones.push(new Bone())
-}, 20000);
+}, 10000);
 
 setInterval(function () {
     bones.forEach(bone => {
@@ -417,7 +417,7 @@ class Donut {
 const donuts = [];
 setInterval(function () {
     donuts.push(new Donut())
-}, 40000);
+}, 20000);
 
 setInterval(function () {
     donuts.forEach(donut => {
@@ -514,6 +514,7 @@ function countLastResults() {
     console.log(restoredLastGames);
 
     let record = "<table align='center'>";
+    record += "<tr><th>Your Score:" + score.value + "</th><th>Best Score:" + score.best + "</th></tr>";
     record += "<tr><th colspan='2'>Last Games</th></tr>";
     record += "<tr><th>Game №</th><th>Score</th></tr>";
     for (i = 0; i < restoredLastGames.length; i++) {
@@ -641,6 +642,5 @@ Stages */
         console.log(state.current);
     }
 }*/
-
 
 
