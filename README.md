@@ -1,2 +1,2 @@
-# paveltitov16-JSFEPRESCHOOL
-Private repository for @paveltitov16
+## Corgi Jump! ##  
+https://paveltitov16.github.io/Corgi_Jump-game/game-app/
