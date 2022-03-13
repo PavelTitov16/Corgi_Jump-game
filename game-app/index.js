@@ -19,6 +19,9 @@ sheepImage.src = './assets/images/Sheep!.png';
 const corgiImage = new Image;
 corgiImage.src = './assets/images/Pembroke.png';
 
+const jumpCorgi = new Image;
+jumpCorgi.src = './assets/images/Pembroke_Jump.png';
+
 const donutImage = new Image;
 donutImage.src = './assets/images/Donut.png';
 
@@ -164,7 +167,7 @@ class Foreground {
         }
 
         this.velocity = {
-            x: -10,
+            x: -5,
             y: 0
         }
 
@@ -195,7 +198,7 @@ class Clouds {
         }
 
         this.velocity = {
-            x: -10,
+            x: -5,
             y: 0
         }
 
@@ -237,11 +240,14 @@ class Corgi {
         this.height = 100;
 
         this.image = corgiImage;
+        this.image = jumpCorgi;
         this.is_jump = false;
     }
 
     draw() {
-        ctx.drawImage(corgiImage, this.position.x, this.position.y, this.width, this.height);
+        if (this.velocity.y == 0) {
+            ctx.drawImage(corgiImage, this.position.x, this.position.y, this.width, this.height);
+        } else ctx.drawImage(jumpCorgi, this.position.x, this.position.y, this.width, this.height);
     }
 
     update() {
@@ -492,7 +498,7 @@ setInterval(function () {
             loseSd.play();
             state.current = state.gameOver;
             backMusic.pause();
-            setTimeout( countLastResults, 2000);
+            setTimeout(countLastResults, 2000);
         }
     })
 }, 100)
@@ -520,7 +526,7 @@ function countLastResults() {
     for (i = 0; i < restoredLastGames.length; i++) {
         var key = localStorage.key(i);
         var person = localStorage.getItem(key);
-        record += "<tr><td>" + (i+1) + " </td>";
+        record += "<tr><td>" + (i + 1) + " </td>";
         record += "<td>" + restoredLastGames[i] + "</td>";
     }
     record += "</table>";
