@@ -51,6 +51,9 @@ bonusSd.src = './assets/sounds/donut.mp3';
 
 const loseSd = new Audio();
 loseSd.src = './assets/sounds/lose.mp3';
+
+const flySound = new Audio();
+flySound.src = './assets/sounds/supermen.mp3';
 /* Sounds preload */
 
 /* Game stages */
@@ -436,24 +439,24 @@ setInterval(function () {
 function animate() {
     requestAnimationFrame(animate);
     bg.update();
-    fg.forEach((elem) => {
-        elem.update();
-        if (elem.position.x + elem.width <= 0) {
-            fg.push(new Foreground);
-            fg.shift();
-        }
-    })
-    cld.forEach((cloud) => {
-        cloud.update();
-        if (cloud.position.x + cloud.width <= 0) {
-            cld.push(new Clouds);
-            cld.shift();
-        }
-    })
     if (state.current === 0) {
         getReady.update();
     }
     if (state.current === 1) {
+        fg.forEach((elem) => {
+            elem.update();
+            if (elem.position.x + elem.width <= 0) {
+                fg.push(new Foreground);
+                fg.shift();
+            }
+        });
+        cld.forEach((cloud) => {
+            cloud.update();
+            if (cloud.position.x + cloud.width <= 0) {
+                cld.push(new Clouds);
+                cld.shift();
+            }
+        });
         corgi.update();
         sheeps.forEach((sheep) => {
             sheep.update();
@@ -543,8 +546,11 @@ const keyS = {
 }
 
 document.addEventListener('keydown', function (event) {
-    stageSwitch();
     keyCode = event.keyCode;
+    
+    if (keyCode === 13) {
+        stageSwitch();
+    }
     if (state.current == state.gameOn) {
 
         switch (keyCode) {
