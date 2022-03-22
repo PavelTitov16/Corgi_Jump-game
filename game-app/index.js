@@ -30,6 +30,15 @@ gameStart.src = './assets/images/StartButton.png';
 
 const endGame = new Image;
 endGame.src = './assets/images/gameOver.png';
+
+const darkCorgi = new Image;
+darkCorgi.src = './assets/images/DarkCorgi.png';
+
+const darkCorgiJump = new Image;
+darkCorgiJump.src = './assets/images/DarkCorgi_Jump.png';
+
+const coatImage = new Image;
+coatImage.src = './assets/images/redCoat.png';
 /* Images preload */
 
 /* Sounds preload */
@@ -223,7 +232,7 @@ const cld = [new Clouds(), new Clouds(), new Clouds()];
 /* Field */
 
 /* Corgi */
-const gravity = 1.6;
+let gravity = 1.7;
 
 class Corgi {
     constructor() {
@@ -379,8 +388,8 @@ setInterval(function () {
 
 setInterval(function () {
     bones.forEach(bone => {
-        if (corgi.position.x + corgi.width - 35 >= bone.position.x && corgi.position.x - corgi.width + 35 <= bone.position.x + bone.width - 35
-            && corgi.position.y + corgi.height - 35 >= bone.position.y && corgi.position.y - corgi.height + 35 <= bone.position.y + bone.height - 35) {
+        if (corgi.position.x + corgi.width - 35 >= bone.position.x && corgi.position.x - corgi.width + 35 <= bone.position.x + bone.width - 35 &&
+            corgi.position.y + corgi.height - 35 >= bone.position.y && corgi.position.y - corgi.height + 35 <= bone.position.y + bone.height - 35) {
             console.log('bonus');
             bones.shift();
             bonusSd.play();
@@ -424,8 +433,8 @@ setInterval(function () {
 
 setInterval(function () {
     donuts.forEach(donut => {
-        if (corgi.position.x + corgi.width - 40 >= donut.position.x && corgi.position.x - corgi.width + 40 <= donut.position.x + donut.width - 40
-            && corgi.position.y + corgi.height - 40 >= donut.position.y && corgi.position.y - corgi.height + 40 <= donut.position.y + donut.height - 40) {
+        if (corgi.position.x + corgi.width - 40 >= donut.position.x && corgi.position.x - corgi.width + 40 <= donut.position.x + donut.width - 40 &&
+            corgi.position.y + corgi.height - 40 >= donut.position.y && corgi.position.y - corgi.height + 40 <= donut.position.y + donut.height - 40) {
             console.log('bonus');
             donuts.shift();
             bonusSd.play();
@@ -434,6 +443,59 @@ setInterval(function () {
     });
 }, 100)
 /* Donut */
+
+/* Fly Coat */
+class Coat {
+    constructor() {
+        this.position = {
+            x: 1200,
+            y: getRandomValue(100, 170)
+        }
+        this.velocity = {
+            x: -14,
+            y: 0
+        }
+
+        this.width = 80;
+        this.height = 80;
+
+        this.image = coatImage;
+    }
+
+    draw() {
+        ctx.drawImage(coatImage, this.position.x, this.position.y, this.width, this.height);
+    }
+
+    update() {
+        this.draw();
+        this.position.x += this.velocity.x;
+    }
+}
+const coats = [];
+setInterval(function () {
+    coats.push(new Coat());
+}, 30000);
+
+
+setInterval(function () {
+    coats.forEach(coat => {
+        if (corgi.position.x + corgi.width - 40 >= coat.position.x && corgi.position.x - corgi.width + 40 <= coat.position.x + coat.width - 40 &&
+            corgi.position.y + corgi.height - 40 >= coat.position.y && corgi.position.y - corgi.height + 40 <= coat.position.y + coat.height - 40) {
+            console.log('bonus');
+            coats.shift();
+            flySound.play();
+            corgi.velocity.y = -20;
+            gravity = 0;
+            keyS.jump.pressed = true;
+            keyS.double_jump.pressed = true;
+            setTimeout(function () {
+                corgi.velocity.y = 0;
+                gravity = 1.7;
+            }, 15000);
+        }
+    });
+}, 100)
+/* Fly Coat */
 
 /* Animation */
 function animate() {
@@ -465,19 +527,25 @@ function animate() {
                 scoreSd.play();
                 sheeps.shift();
             }
-        })
+        });
         donuts.forEach((donut) => {
             donut.update();
             if (donut.position.x + donut.width <= 0) {
                 donuts.shift();
             }
-        })
+        });
         bones.forEach((bone) => {
             bone.update();
             if (bone.position.x + bone.width <= 0) {
                 bones.shift();
             }
-        })
+        });
+        coats.forEach((coat) => {
+            coat.update();
+            if (coat.position.x + coat.width <= 0) {
+                coats.shift();
+            }
+        });
         score.update();
     }
     if (state.current === 2) {
@@ -489,13 +557,13 @@ function animate() {
 /* Lose */
 setInterval(function () {
     sheeps.forEach(sheep => {
-        if (state.current != state.gameOver && corgi.position.x + corgi.width - 45 > sheep.position.x && corgi.position.x - corgi.width + 45 < sheep.position.x + sheep.width - 45
-            && corgi.position.y + corgi.height - 45 > sheep.position.y && corgi.position.y - corgi.height + 45 < sheep.position.y + sheep.height - 45) {
+        if (state.current != state.gameOver && corgi.position.x + corgi.width - 45 > sheep.position.x && corgi.position.x - corgi.width + 45 < sheep.position.x + sheep.width - 45 &&
+            corgi.position.y + corgi.height - 45 > sheep.position.y && corgi.position.y - corgi.height + 45 < sheep.position.y + sheep.height - 45) {
             console.log('lose');
             loseSd.play();
             state.current = state.gameOver;
             backMusic.pause();
-            setTimeout( countLastResults, 2000);
+            setTimeout(countLastResults, 2000);
         }
     })
 }, 100)
@@ -523,7 +591,7 @@ function countLastResults() {
     for (i = 0; i < restoredLastGames.length; i++) {
         var key = localStorage.key(i);
         var person = localStorage.getItem(key);
-        record += "<tr><td>" + (i+1) + " </td>";
+        record += "<tr><td>" + (i + 1) + " </td>";
         record += "<td>" + restoredLastGames[i] + "</td>";
     }
     record += "</table>";
@@ -571,7 +639,7 @@ document.addEventListener('keydown', function (event) {
                     return;
                 }
                 if (!keyS.double_jump.pressed && corgi.velocity.y === 0) {
-                    corgi.velocity.y -= 27;
+                    corgi.velocity.y -= 30;
                     keyS.double_jump.pressed = true;
                     doubleJumpSd.play();
                 } else corgi.velocity.y = 0;
@@ -581,7 +649,9 @@ document.addEventListener('keydown', function (event) {
 
 });
 
-document.addEventListener('keyup', ({ keyCode }) => {
+document.addEventListener('keyup', ({
+    keyCode
+}) => {
     switch (keyCode) {
         case 81:
             corgi.velocity.y = 0;
@@ -648,5 +718,3 @@ Stages */
         console.log(state.current);
     }
 }*/
-
-
