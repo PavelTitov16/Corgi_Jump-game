@@ -223,7 +223,7 @@ const cld = [new Clouds(), new Clouds(), new Clouds()];
 /* Field */
 
 /* Corgi */
-const gravity = 1.1;
+const gravity = 1.6;
 
 class Corgi {
     constructor() {
@@ -547,7 +547,7 @@ const keyS = {
 
 document.addEventListener('keydown', function (event) {
     keyCode = event.keyCode;
-    
+
     if (keyCode === 13) {
         stageSwitch();
     }
