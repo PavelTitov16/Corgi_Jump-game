@@ -359,7 +359,7 @@ class Bone {
     constructor() {
         this.position = {
             x: 1200,
-            y: getRandomValue(100, 400)
+            y: getRandomValue(200, 400)
         }
         this.velocity = {
             x: -13,
@@ -404,7 +404,7 @@ class Donut {
     constructor() {
         this.position = {
             x: 1200,
-            y: getRandomValue(100, 400)
+            y: getRandomValue(200, 400)
         }
         this.velocity = {
             x: -16,
@@ -449,15 +449,15 @@ class Coat {
     constructor() {
         this.position = {
             x: 1200,
-            y: getRandomValue(100, 170)
+            y: getRandomValue(200, 350)
         }
         this.velocity = {
-            x: -14,
+            x: -18,
             y: 0
         }
 
-        this.width = 80;
-        this.height = 80;
+        this.width = 70;
+        this.height = 70;
 
         this.image = coatImage;
     }
@@ -474,13 +474,13 @@ class Coat {
 const coats = [];
 setInterval(function () {
     coats.push(new Coat());
-}, 30000);
+}, 35000);
 
 
 setInterval(function () {
     coats.forEach(coat => {
-        if (corgi.position.x + corgi.width - 40 >= coat.position.x && corgi.position.x - corgi.width + 40 <= coat.position.x + coat.width - 40 &&
-            corgi.position.y + corgi.height - 40 >= coat.position.y && corgi.position.y - corgi.height + 40 <= coat.position.y + coat.height - 40) {
+        if (corgi.position.x + corgi.width - 30 >= coat.position.x && corgi.position.x - corgi.width + 30 <= coat.position.x + coat.width - 30 &&
+            corgi.position.y + corgi.height - 30 >= coat.position.y && corgi.position.y - corgi.height + 30 <= coat.position.y + coat.height - 30) {
             console.log('bonus');
             coats.shift();
             flySound.play();
