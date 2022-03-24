@@ -67,6 +67,31 @@ window.addEventListener('load', function () {
 
     const flySound = new Audio();
     flySound.src = './assets/sounds/supermen.mp3';
+
+    const muteBtn = document.querySelector('.mute');
+
+    muteBtn.addEventListener('click', () => {
+        if (backMusic.muted) {
+            backMusic.muted = false;
+            swipeSd.muted = false;
+            JumpSd.muted = false;
+            scoreSd.muted = false;
+            bonusSd.muted = false;
+            loseSd.muted = false;
+            flySound.muted = false;
+            muteBtn.innerText = 'mute';
+        } else {
+            backMusic.muted = true;
+            backMusic.muted = true;
+            swipeSd.muted = true;
+            JumpSd.muted = true;
+            scoreSd.muted = true;
+            bonusSd.muted = true;
+            loseSd.muted = true;
+            flySound.muted = true;
+            muteBtn.innerText = 'unmute';
+        }
+    });
     /* Sounds preload */
 
     /* Game stages */
@@ -352,7 +377,7 @@ window.addEventListener('load', function () {
         if (state.current === 1) {
             speed += 2;
         }
-    }, 20000);
+    }, 15000);
 
     /* Sheeps */
     class Sheep {
@@ -375,7 +400,7 @@ window.addEventListener('load', function () {
         update() {
             this.draw();
             this.position.x -= this.velocity;
-    
+
         }
     }
     const sheeps = [];

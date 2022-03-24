@@ -27,6 +27,7 @@ canvas {
     gap: 50px;
     padding: 0 45px;
 }
+
 .logo {
     background-image: url(./assets/images/Pembroke_Jump.png);
     background-size: contain;
@@ -34,76 +35,87 @@ canvas {
     height: 80px;
     width: 80px;
 }
+
 .sky {
-    display:flex;
-    align-items:center;
-    justify-content:center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 @keyframes slidebg {
     to {
-      background-position:140px;
+        background-position: 140px;
     }
 }
+
 .title {
     background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-    border-radius:5px;
+    border-radius: 5px;
     height: 50px;
     width: 160px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-transform:uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 20px;
     line-height: 30px;
     text-align: center;
     color: #F59C25;
-    animation:slidebg 2.1s linear infinite;
+    animation: slidebg 2.1s linear infinite;
 }
+
 .title:after {
-    content:attr(alt);
-    width:150px;
-    height:40px;
+    content: attr(alt);
+    width: 150px;
+    height: 40px;
     background-color: #1e6743;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .tips {
     display: flex;
     gap: 40px;
     border: 2px solid #0e21c7;
     padding: 0 20px;
 }
+
 .tip {
     font-family: 'Roboto', sans-serif;
     color: #1e6743;
 }
+
 .letter {
     font-family: 'Roboto', sans-serif;
     color: #0e21c7;
     font-style: normal;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 18px;
 }
+
 .conditions {
     width: 200px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
+
 .points {
-    display: flex; 
+    display: flex;
     align-items: center;
 }
+
 .task {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight:bold;
+    font-weight: bold;
     color: #0e21c7;
 }
+
 .example {
     background-image: url(./assets/images/Sheep!.png);
     background-size: contain;
@@ -111,6 +123,7 @@ canvas {
     height: 50px;
     width: 50px;
 }
+
 .donut {
     background-image: url(./assets/images/Donut.png);
     background-size: contain;
@@ -118,6 +131,7 @@ canvas {
     height: 35px;
     width: 35px;
 }
+
 .bone {
     background-image: url(./assets/images/Bone.png);
     background-size: contain;
@@ -125,6 +139,7 @@ canvas {
     height: 35px;
     width: 35px;
 }
+
 /* Header */
 
 /* Records */
@@ -136,10 +151,12 @@ canvas {
     width: 100%;
     display: none;
 }
+
 .popup {
     width: 1200px;
     margin: 0 auto;
 }
+
 .result_block {
     margin-top: 100px;
     width: 350px;
@@ -149,12 +166,15 @@ canvas {
     font-size: 23px;
     color: #0e21c7;
 }
+
 .wrapper.active {
     display: block;
 }
+
 .result_block table {
     width: 100%;
 }
+
 /* Records */
 
 /* Footer */
@@ -165,6 +185,7 @@ canvas {
     height: 63px;
     background-color: #49a174;
 }
+
 .footer-container {
     width: 100%;
     max-width: 1200px;
@@ -174,12 +195,14 @@ canvas {
     justify-content: space-between;
     align-items: center;
 }
-.footer-git{
+
+.footer-git {
     display: flex;
     align-items: center;
     width: 182px;
     padding-left: 20px;
 }
+
 .footer-text {
     font-family: 'Roboto', sans-serif;
     color: antiquewhite;
@@ -189,6 +212,7 @@ canvas {
     line-height: 20px;
     margin-right: 20px;
 }
+
 .rss {
     width: 100px;
     height: 50px;
@@ -199,14 +223,35 @@ canvas {
     transition: 0.5s;
     margin-right: 20px;
 }
+
 .rss:hover {
     filter: invert(90%) sepia(77%) saturate(3235%) hue-rotate(301deg) brightness(94%) contrast(99%);
 }
+
 .link {
     color: antiquewhite;
     transition: 0.5s;
 }
+
 .link:hover {
     filter: invert(0%) sepia(77%) saturate(3235%) hue-rotate(301deg) brightness(94%) contrast(99%);
 }
+
 /* Footer */
+
+.mute {
+    background-color: #1e6743;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    width: 80px;
+    height: 60px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: 4px solid white
+}
