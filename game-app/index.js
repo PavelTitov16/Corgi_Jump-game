@@ -285,6 +285,12 @@ const keys = {
     },
     swipe: {
         pressed: false
+    },
+    up: {
+        pressed: false
+    },
+    down: {
+        pressed: false
     }
 }
 
@@ -297,7 +303,7 @@ document.addEventListener('keydown', function (event) {
     if (state.current == state.gameOn) {
 
         switch (keyCode) {
-            case 83:
+            /*case 83:
                 if (keys.swipe.pressed) {
                     return;
                 }
@@ -308,7 +314,7 @@ document.addEventListener('keydown', function (event) {
                     }, 2000);
                     keys.swipe.pressed = true;
                 }else corgi.velocity.y = 0;
-                break;
+                break;*/
             case 87:
                 if (keys.jump.pressed) {
                     return;
@@ -321,7 +327,6 @@ document.addEventListener('keydown', function (event) {
                 break;
         }
     }
-
 });
 
 document.addEventListener('keyup', ({
@@ -564,13 +569,48 @@ setInterval(function () {
 
 setInterval(function () {
     coats.forEach(coat => {
-        if (corgi.position.x + corgi.width - 30 >= coat.position.x && corgi.position.x - corgi.width + 30 <= coat.position.x + coat.width - 30 &&
-            corgi.position.y + corgi.height - 30 >= coat.position.y && corgi.position.y - corgi.height + 30 <= coat.position.y + coat.height - 30) {
-            console.log('bonus');
-            coats.shift();
-            backMusic.pause();
-            flySound.play();
-            corgi.velocity.y = -20;
+            if (corgi.position.x + corgi.width - 30 >= coat.position.x && corgi.position.x - corgi.width + 30 <= coat.position.x + coat.width - 30 &&
+                corgi.position.y + corgi.height - 30 >= coat.position.y && corgi.position.y - corgi.height + 30 <= coat.position.y + coat.height - 30) {
+                console.log('bonus');
+                coats.shift();
+                backMusic.pause();
+                flySound.play();
+                document.addEventListener('keydown', function (event) {
+                        keyCode = event.keyCode;
+                        switch (keyCode) {
+                            case 40:
+                                if (keys.down.pressed) {
+                                    return;
+                                }
+                                if (!keys.down.pressed) {
+                                    corgi.velocity.y += 6;
+                                    keys.down.pressed = true;
+                                    break;
+                                };
+                            case 38:
+                                if (keys.up.pressed) {
+                                    return;
+                                }
+                                if (!keys.up.pressed) {
+                                    corgi.velocity.y -= 6;
+                                    keys.up.pressed = true;
+                                    break;
+                                }
+                        }
+                    });
+            document.addEventListener('keyup', ({
+                keyCode
+            }) => {
+                switch (keyCode) {
+                    case 38:
+                        keys.up.pressed = false;
+                        break;
+                    case 40:
+                        keys.down.pressed = false;
+                        break;
+                }
+            });
+            corgi.velocity.y = -1;
             gravity = 0;
             keys.jump.pressed = true;
             keys.swipe.pressed = true;
