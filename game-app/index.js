@@ -17,11 +17,11 @@ window.addEventListener('load', function () {
     const sheepImage = new Image;
     sheepImage.src = './assets/images/Sheep!.png';
 
-    const corgiImage = new Image;
-    corgiImage.src = './assets/images/Pembroke.png';
+    const gingerCorgi = new Image;
+    gingerCorgi.src = './assets/images/Pembroke.png';
 
-    const jumpCorgi = new Image;
-    jumpCorgi.src = './assets/images/Pembroke_Jump.png';
+    const gingerCorgiJump = new Image;
+    gingerCorgiJump.src = './assets/images/Pembroke_Jump.png';
 
     const donutImage = new Image;
     donutImage.src = './assets/images/Donut.png';
@@ -105,17 +105,51 @@ window.addEventListener('load', function () {
     function stageSwitch() {
         switch (state.current) {
             case state.getReady:
-                state.current = state.gameOn;
+                choseSkin();
                 break;
             case state.gameOn:
-
-                backMusic.play();
                 break;
             case state.gameOver:
                 location.reload();
                 state.current = state.getReady;
                 break;
         }
+    }
+    let jumpCorgi;
+
+    function choseSkin() {
+        let modalWindow = document.querySelector(".modal-window");
+        let modalContent = document.querySelector(".modal-content");
+        modalContent.innerHTML =
+            `<h2 class="modal-title">Corgi Jump</h2>
+            <h3 class="modal-subtitle">Chose your style!</h3>
+            <div class="modal-skins">
+                <div class="modal-skins__wrapper">
+                    <img class="modal-skins__item" src="` + gingerCorgi.src + `">
+                </div>
+                <div class="modal-skins__wrapper">
+                    <img class="modal-skins__item" src="` + darkCorgi.src + `">
+                </div>
+            </div>`;
+
+        modalWindow.classList.add('active');
+
+        let corgiSkins = document.querySelectorAll('.modal-skins__item');
+        corgiSkins.forEach(skin => {
+            skin.addEventListener('click', () => {
+                corgi.image = skin;
+                modalWindow.classList.remove('active');
+                state.current = state.gameOn;
+                stageSwitch();
+                if (corgi.image.src === gingerCorgi.src) {
+                    jumpCorgi = gingerCorgiJump;
+                } else jumpCorgi = darkCorgiJump;
+            })
+        });
+    }
+
+    if (state.current === 1) {
+        backMusic.play();
     }
     /* Game stages */
 
@@ -204,9 +238,9 @@ window.addEventListener('load', function () {
 
     setInterval(function increaseSpeed() {
         if (state.current === 1) {
-            groundSpeed += 2;
+            groundSpeed += 0.4;
         }
-    }, 20000);
+    }, 10000);
 
     class Foreground {
         constructor() {
@@ -283,16 +317,15 @@ window.addEventListener('load', function () {
             this.width = 100;
             this.height = 100;
 
-            this.image = corgiImage;
             this.image = jumpCorgi;
-
         }
 
         draw() {
             if (this.velocity.y === 0) {
-                ctx.drawImage(corgiImage, this.position.x, this.position.y, this.width, this.height);
+                ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
             } else ctx.drawImage(jumpCorgi, this.position.x, this.position.y, this.width, this.height);
         }
+
 
         update() {
             this.draw();
@@ -865,58 +898,5 @@ class Background {
     }
 }
 
-const bg = new Background();
 
-
-
- class InputHandler {
-    constructor() {
-      this.keys = [];
-      window.addEventListener('keydown', (e) => {
-        if ((e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') && this.keys.indexOf(e.key) === -1) {
-          this.keys.push(e.key);
-        }
-      });
-      window.addEventListener('keyup', (e) => {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-          this.keys.splice(this.keys.indexOf(e.key), 1);
-        }
-      });
-    }
-  }
-
-
-    //controls
-      if (input.keys.indexOf('ArrowUp') > -1 && this.groundCheck()) {
-        this.vy = -20;
-      } else if (input.keys.indexOf('ArrowLeft') > -1) {
-        this.speed = -5;
-      } else if (input.keys.indexOf('ArrowRight') > -1) {
-        this.speed = 5;
-      } else {
-        this.speed = 0;
-      }
-
-      //horizontal move
-      this.x += this.speed;
-      if (this.x < 0) this.x = 0;
-      else if (this.x > canvas.width - this.width) this.x = canvas.width - this.width;
-
-      //vertical move
-      this.y += this.vy;
-      if (!this.groundCheck()) {
-        this.vy += this.gravity;
-        this.frameX = 18;
-      } else {
-        this.vy = 0;
-        // this.frameX = 0;
-      }
-
-      if (this.y > this.gameHeight - this.height) this.y = this.playerHeight;
-    }
-
-    groundCheck() {
-      return this.y >= this.playerHeight;
-    }
-  }
 */
