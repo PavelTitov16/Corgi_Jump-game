@@ -12,15 +12,16 @@
 <body>
     <header class="header-container" id="header">
         <div class="logo"></div>
-        <button class="mute">mute</button>
-        <div class="sky">
-            <a class="title" alt="Corgi Jump!"></a>
-        </div>
-        <div class="tips">
+        
+        <div class="mute-wrapper">
+            <button class="mute">mute</button>
             <div class="moves">
                 <p class="tip">Press <span class="letter">W</span> for Jump</p>
-                <p class="tip">Press <span class="letter">S</span> for Swipe</p>
+                <p class="tip">Press <span class="letter">M</span> to Mute</p>
             </div>
+            
+        </div>
+        <div class="tips">
             <div class="conditions">
                 <div class="points">
                     <p class="task">Avoid obstacles!</p>
@@ -30,11 +31,17 @@
                     <p class="task">Collect bonuses!</p>
                     <div class="donut"></div>
                     <div class="bone"></div>
+                    <div class="coat"></div>
                 </div>
             </div>
         </div>
     </header>
     <canvas id="canvas" width="1200" height="600"></canvas>
+    <div class="key-wrapper">
+        <div class="key-item">
+            Press <span>ENTER</span> to continue
+        </div>
+    </div>
     <div class="modal-window">
         <div class="modal-content">
 

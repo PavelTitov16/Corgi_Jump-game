@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+/* font-family: 'Play', sans-serif; */
+
 * {
     box-sizing: border-box;
 }
@@ -37,61 +41,46 @@ canvas {
     width: 80px;
 }
 
-.sky {
+/*Mute */
+.mute-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
-@keyframes slidebg {
-    to {
-        background-position: 140px;
-    }
-}
-
-.title {
-    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-    border-radius: 5px;
-    height: 50px;
-    width: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    color: #F59C25;
-    animation: slidebg 2.1s linear infinite;
-}
-
-.title:after {
-    content: attr(alt);
-    width: 150px;
-    height: 40px;
+.mute {
     background-color: #1e6743;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    width: 80px;
+    height: 50px;
+    font-family: 'Play', sans-serif;
+    border-radius: 4px;
 }
+
+button:hover {
+    cursor: pointer;
+    outline: 4px solid white
+}
+/*Mute */
+
 
 .tips {
     display: flex;
     gap: 40px;
-    border: 2px solid #0e21c7;
     padding: 0 20px;
 }
 
 .tip {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     color: #1e6743;
 }
 
 .letter {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     color: #0e21c7;
     font-style: normal;
     font-weight: bold;
@@ -99,19 +88,20 @@ canvas {
 }
 
 .conditions {
-    width: 200px;
+    
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    gap: 10px;
 }
 
 .points {
+    width: 280px;
     display: flex;
     align-items: center;
 }
 
 .task {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     font-style: normal;
     font-weight: bold;
     color: #0e21c7;
@@ -129,16 +119,24 @@ canvas {
     background-image: url(./assets/images/Donut.png);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
 }
 
 .bone {
     background-image: url(./assets/images/Bone.png);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
+}
+
+.coat {
+    background-image: url(./assets/images/redCoat.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
 }
 
 /* Header */
@@ -205,7 +203,7 @@ canvas {
 }
 
 .footer-text {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     color: antiquewhite;
     font-style: normal;
     font-weight: normal;
@@ -240,25 +238,6 @@ canvas {
 
 /* Footer */
 
-/*Mute */
-.mute {
-    background-color: #1e6743;
-    outline: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    width: 80px;
-    height: 60px;
-    font-family: 'Roboto', sans-serif;
-    border-radius: 4px;
-}
-
-button:hover {
-    cursor: pointer;
-    outline: 4px solid white
-}
-/*Mute */
-
 /* Modal window */
 .modal-window {
     position: absolute;
@@ -283,14 +262,14 @@ button:hover {
     margin-top: 25%;
     position: absolute;
     top: -250px;
-    margin-left:50%;
+    margin-left: 50%;
     left: -300px;
 }
 
 .modal-skins {
     display: flex;
     gap: 80px;
-    
+
 }
 
 .modal-skins__item {
@@ -312,7 +291,7 @@ button:hover {
 }
 
 .modal-title {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 50px;
@@ -321,12 +300,88 @@ button:hover {
 }
 
 .modal-subtitle {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
     line-height: 30px;
     color: antiquewhite;
 }
+
 /* Modal window */
 
+/* Start tip */
+.key-wrapper {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    top: 83%;
+    left: 38%;
+}
+
+.key-wrapper.active {
+    display: block;
+}
+
+@keyframes gradient {
+    0% {
+        color: #F59C25;
+    }
+
+    50% {
+        color: #49a174;
+    }
+
+    100% {
+        color: #F59C25;
+    }
+}
+
+.key-item {
+    margin: 0 auto;
+    font-family: 'Play', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+    color: antiquewhite;
+    animation: gradient 3s infinite;
+}
+    /* Start tip */
+
+    /*
+    @keyframes slidebg {
+    to {
+        background-position: 140px;
+    }
+}
+
+.title {
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    border-radius: 5px;
+    height: 50px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'Play', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #F59C25;
+    animation: slidebg 2.1s linear infinite;
+}
+
+.title:after {
+    content: attr(alt);
+    width: 150px;
+    height: 40px;
+    background-color: #1e6743;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+*/

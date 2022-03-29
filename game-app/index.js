@@ -51,10 +51,10 @@ window.addEventListener('load', function () {
     backMusic.loop = true;
 
     const swipeSd = new Audio();
-    swipeSd.src = './assets/sounds/jump!.mp3';
+    swipeSd.src = './assets/sounds/jump.mp3';
 
     const JumpSd = new Audio();
-    JumpSd.src = './assets/sounds/jump.mp3';
+    JumpSd.src = './assets/sounds/jump!.mp3';
 
     const scoreSd = new Audio();
     scoreSd.src = './assets/sounds/score.mp3';
@@ -70,7 +70,7 @@ window.addEventListener('load', function () {
 
     const muteBtn = document.querySelector('.mute');
 
-    muteBtn.addEventListener('click', () => {
+    function pressMute() {
         if (backMusic.muted) {
             backMusic.muted = false;
             swipeSd.muted = false;
@@ -91,7 +91,11 @@ window.addEventListener('load', function () {
             flySound.muted = true;
             muteBtn.innerText = 'unmute';
         }
+    }
+    muteBtn.addEventListener('click', () => {
+        pressMute(); 
     });
+
     /* Sounds preload */
 
     /* Game stages */
@@ -101,10 +105,11 @@ window.addEventListener('load', function () {
         gameOn: 1,
         gameOver: 2
     };
-
+    
     function stageSwitch() {
         switch (state.current) {
             case state.getReady:
+                keyTip.classList.remove('active');
                 choseSkin();
                 break;
             case state.gameOn:
@@ -152,6 +157,11 @@ window.addEventListener('load', function () {
         backMusic.play();
     }
     /* Game stages */
+
+    /* key tip */
+    const keyTip = document.querySelector('.key-wrapper');
+    keyTip.classList.add('active');
+    /* key tip */
 
     /* Sky */
 
@@ -360,6 +370,9 @@ window.addEventListener('load', function () {
 
         if (keyCode === 13) {
             stageSwitch();
+        }
+        if (keyCode === 77) {
+            pressMute();
         }
         if (state.current == state.gameOn) {
 
@@ -698,7 +711,8 @@ window.addEventListener('load', function () {
                 loseSd.play();
                 state.current = state.gameOver;
                 backMusic.pause();
-                setTimeout(countLastResults, 2000);
+                setTimeout(countLastResults, 1000);
+                keyTip.classList.add('active');
             }
         });
     }, 100);
