@@ -30,7 +30,7 @@ canvas {
     width: 100%;
     justify-content: space-between;
     gap: 50px;
-    padding: 0 45px;
+    padding-left: 45px;
 }
 
 .logo {
@@ -67,16 +67,20 @@ button:hover {
 }
 /*Mute */
 
+.controls {
+    text-align: center;
+}
 
 .tips {
     display: flex;
     gap: 40px;
-    padding: 0 20px;
 }
 
 .tip {
     font-family: 'Play', sans-serif;
     color: #1e6743;
+    font-style: normal;
+    font-size: 18px;
 }
 
 .letter {
@@ -87,11 +91,16 @@ button:hover {
     font-size: 18px;
 }
 
+.arrow {
+    color: #F59C25;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .conditions {
-    
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
 .points {
